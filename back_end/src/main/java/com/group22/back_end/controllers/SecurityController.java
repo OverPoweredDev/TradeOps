@@ -25,4 +25,9 @@ public class SecurityController {
     public void updateSecurityById(@RequestBody Security security){
         securityService.updateSecurity(security);
     }
+
+    @DeleteMapping("/delete/{securityId}")
+    public void deleteSecurityById(@PathVariable int securityId){
+        securityService.deleteSecurityById(securityId);
+    }
 }

@@ -14,4 +14,7 @@ public class SecurityService {
 
     public void updateSecurity(Security security) {
     }
+
+    public void deleteSecurityById(int securityId) {
+    }
 }
