@@ -45,7 +45,7 @@ public class SecurityService {
     public void updateSecurity(Security security) throws ResourceNotFoundException{
 
         Security securityToUpdate = securityRepository.findById(security.getSecurityId())
-                .orElseThrow(() -> new ResourceNotFoundException("Dog not found for this id :: " + security.getSecurityId()));
+                .orElseThrow(() -> new ResourceNotFoundException("Security not found for this id :: " + security.getSecurityId()));
 
         securityToUpdate.setIsin(security.getIsin());
         securityToUpdate.setCusip(security.getCusip());
@@ -62,7 +62,7 @@ public class SecurityService {
     public void deleteSecurityById(int securityId) throws ResourceNotFoundException{
 
         Security securityToDelete = securityRepository.findById(securityId)
-                .orElseThrow(() -> new ResourceNotFoundException("Dog not found for this id :: " + securityId));
+                .orElseThrow(() -> new ResourceNotFoundException("Security not found for this id :: " + securityId));
         securityRepository.delete(securityToDelete);
     }
 }
