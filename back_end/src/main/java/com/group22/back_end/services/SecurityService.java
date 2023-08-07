@@ -1,5 +1,6 @@
 package com.group22.back_end.services;
 
+import com.group22.back_end.exception.ResourceNotFoundException;
 import com.group22.back_end.models.Security;
 import com.group22.back_end.repositories.SecurityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +42,10 @@ public class SecurityService {
         return securityRepository.save(security);
     }
 
-    public void updateSecurity(Security security) {
-        Security securityToUpdate = securityRepository.getById(security.getSecurityId());
+    public void updateSecurity(Security security) throws ResourceNotFoundException{
+
+        Security securityToUpdate = securityRepository.findById(security.getSecurityId())
+                .orElseThrow(() -> new ResourceNotFoundException("Dog not found for this id :: " + security.getSecurityId()));
 
         securityToUpdate.setIsin(security.getIsin());
         securityToUpdate.setCusip(security.getCusip());
@@ -56,8 +59,10 @@ public class SecurityService {
         securityRepository.save(securityToUpdate);
     }
 
-    public void deleteSecurityById(int securityId) {
-        Security securityToDelete = securityRepository.getById(securityId);
+    public void deleteSecurityById(int securityId) throws ResourceNotFoundException{
+
+        Security securityToDelete = securityRepository.findById(securityId)
+                .orElseThrow(() -> new ResourceNotFoundException("Dog not found for this id :: " + securityId));
         securityRepository.delete(securityToDelete);
     }
 }
