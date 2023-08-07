@@ -16,7 +16,7 @@ public class BookUser {
     int bookId;
 
     @Column(name = "UserId")
-    int UserId;
+    int userId;
 
     public BookUser() {
     }
@@ -24,7 +24,7 @@ public class BookUser {
     public BookUser(int bookUserId, int bookId, int userId) {
         this.bookUserId = bookUserId;
         this.bookId = bookId;
-        UserId = userId;
+        this.userId = userId;
     }
 
     public int getBookUserId() {
@@ -44,10 +44,10 @@ public class BookUser {
     }
 
     public int getUserId() {
-        return UserId;
+        return userId;
     }
 
     public void setUserId(int userId) {
-        UserId = userId;
+        this.userId = userId;
     }
 }
