@@ -1,5 +1,6 @@
 package com.group22.back_end.controllers;
 
+import com.group22.back_end.exception.ResourceNotFoundException;
 import com.group22.back_end.models.Security;
 import com.group22.back_end.services.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,30 @@ public class SecurityController {
         this.securityService = securityService;
     }
 
+    @GetMapping(value = "aboutToMature", params = {"date", "alertWindow"})
+    public ResponseEntity getSecuritiesAboutToMatureByDate(@RequestParam(value = "date") String date, @RequestParam(value = "alertWindow") int alertWindow) {
+        System.out.println("/securities/get?date: retrieving securities about to mature wrt date");
+
+        if (!isDateValid(date)) {
+            return ResponseEntity.badRequest().body("Format date as yyyy-MM-dd");
+        }
+
+        LocalDate localDate = LocalDate.parse(date);
+        int response = securityService.getSecuritiesAboutToMatureByDate(localDate, alertWindow);
+        return ResponseEntity.ok().body(response);
+    }
+    @GetMapping(value = "pastMaturity", params = "date")
+    public ResponseEntity getSecuritiesPastMaturityByDate(@RequestParam(value = "date") String date) {
+        System.out.println("/securities/get?date: retrieving securities matured wrt date");
+
+        if (!isDateValid(date)) {
+            return ResponseEntity.badRequest().body("Format date as yyyy-MM-dd");
+        }
+
+        LocalDate localDate = LocalDate.parse(date);
+        int response = securityService.getSecuritiesPastMaturityByDate(localDate);
+        return ResponseEntity.ok().body(response);
+    }
     @GetMapping(value = "get")
     public ResponseEntity getSecurities() {
         System.out.println("/securities/get: retrieving all securities");
@@ -100,17 +125,17 @@ public class SecurityController {
     }
 
     @PostMapping("/add")
-    public void addSecurity(@RequestBody Security security) {
-        securityService.addSecurity(security);
+    public Security addSecurity(@RequestBody Security security) {
+        return securityService.addSecurity(security);
     }
 
     @PutMapping("update/")
-    public void updateSecurityById(@RequestBody Security security) {
+    public void updateSecurityById(@RequestBody Security security) throws ResourceNotFoundException {
         securityService.updateSecurity(security);
     }
 
     @DeleteMapping("/delete/{securityId}")
-    public void deleteSecurityById(@PathVariable int securityId) {
+    public void deleteSecurityById(@PathVariable int securityId) throws ResourceNotFoundException{
         securityService.deleteSecurityById(securityId);
     }
 }
