@@ -19,6 +19,17 @@ public class SecurityService {
         return securityRepository.findAll();
     }
 
+
+    public int getSecuritiesAboutToMatureByDate(LocalDate localDate, int alertWindow) {
+        Date date = Date.valueOf(localDate.plusDays(alertWindow));
+        return securityRepository.findSecuritiesAboutToMatureByDate(date);
+    }
+
+    public int getSecuritiesPastMaturityByDate(LocalDate localDate) {
+        Date date = Date.valueOf(localDate);
+        return securityRepository.findSecuritiesPastMaturityByDate(date);
+    }
+
     public List<Security> getSecuritiesByDate(LocalDate localDate) {
         Date date = Date.valueOf(localDate);
         return securityRepository.findSecuritiesByDate(date);

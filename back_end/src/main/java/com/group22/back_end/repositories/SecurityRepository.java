@@ -21,4 +21,10 @@ public interface SecurityRepository extends JpaRepository<Security, Integer> {
 
     @Query(value = "SELECT s FROM Security s WHERE s.securityId = ?1")
     List<Security> findSecuritiesBySecurityId(int securityId);
+
+    @Query(value = "SELECT COUNT(s) FROM Security s WHERE ?1 >= s.maturityDate")
+    int findSecuritiesAboutToMatureByDate(Date date);
+
+    @Query(value = "SELECT COUNT(s) FROM Security s WHERE s.maturityDate < ?1")
+    int findSecuritiesPastMaturityByDate(Date date);
 }
