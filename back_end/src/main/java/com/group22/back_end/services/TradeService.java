@@ -9,23 +9,25 @@ import java.util.List;
 
 @Service
 public class TradeService {
-
-
-    public List<Trade> getAllTrades()
-    {
+    public List<Trade> getAllTrades() {
+        // SELECT * FROM trade
         return new ArrayList<>();
     }
 
-    public Trade getTradeById(int tradeId)
-    {
+    public Trade getTradeById(int tradeId) {
+        // SELECT * FROM trade t WHERE t.Id = ?1
         return new Trade();
     }
 
-    public Security getSecurityByTradeId(int tradeId)
-    {
+    public Security getSecurityByTradeId(int tradeId) {
+        // SELECT *
+        // FROM security s
+        // INNER JOIN trade t ON s.Id = t.SecurityId
+        // WHERE t.Id = ?1
         return new Security();
     }
-    public void addTrade(Trade trade){
+
+    public void addTrade(Trade trade) {
         //add logic
     }
 

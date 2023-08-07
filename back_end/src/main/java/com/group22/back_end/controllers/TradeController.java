@@ -17,9 +17,8 @@ public class TradeController {
     private TradeService tradeService;
 
     @Autowired
-    public TradeController(TradeService tradeService )
-    {
-        this.tradeService=tradeService;
+    public TradeController(TradeService tradeService) {
+        this.tradeService = tradeService;
     }
 
     @GetMapping("/get")
@@ -30,39 +29,33 @@ public class TradeController {
     }
 
     @GetMapping("get/{tradeId}")
-    public ResponseEntity<Trade> getTradeById(@PathVariable int tradeId)
-    {
+    public ResponseEntity<Trade> getTradeById(@PathVariable int tradeId) {
         System.out.println("/trades/get?Id: retrieving a by Id");
         Trade trade = tradeService.getTradeById(tradeId);
         return ResponseEntity.ok(trade);
     }
 
     @GetMapping("get/security/{tradeId}")
-    public ResponseEntity<Security> getSecurityByTradeId(@PathVariable int tradeId)
-    {
+    public ResponseEntity<Security> getSecurityByTradeId(@PathVariable int tradeId) {
         System.out.println("/trades/get/security?Id: retrieving security by tradeId");
-        Security security= tradeService.getSecurityByTradeId(tradeId);
+        Security security = tradeService.getSecurityByTradeId(tradeId);
         return ResponseEntity.ok(security);
     }
 
 
     @PostMapping("/add")
-    public void createTrade(@RequestBody Trade trade)
-    {
+    public void createTrade(@RequestBody Trade trade) {
         tradeService.addTrade(trade);
     }
 
     @PutMapping("/update/{tradeId}")
-    public void updateTrade(@PathVariable int tradeId,
-                            @RequestBody Trade trade) {
+    public void updateTrade(@PathVariable int tradeId, @RequestBody Trade trade) {
         tradeService.updateTradeById(tradeId);
     }
 
     @DeleteMapping("/delete/{tradeId}")
-    public void deleteTrade(@PathVariable int tradeId,
-                            @RequestBody Trade trade)
-    {
-       tradeService.deleteTradeById(tradeId);
+    public void deleteTrade(@PathVariable int tradeId, @RequestBody Trade trade) {
+        tradeService.deleteTradeById(tradeId);
     }
 
 
