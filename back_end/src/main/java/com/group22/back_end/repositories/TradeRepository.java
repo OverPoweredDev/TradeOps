@@ -18,6 +18,6 @@ public interface TradeRepository extends JpaRepository<Trade,Integer> {
     @Query("SELECT t FROM Trade t WHERE t.id = ?1")
     List<Trade> findTradeById(int tradeId);
 
-//    @Query("SELECT s FROM security s INNER JOIN trade t ON s.Id = t.SecurityId WHERE t.Id = ?1")
-//    List<Security>findSecurityByTradeId(int tradeId);
+    @Query("SELECT s FROM Security s INNER JOIN Trade t ON s.securityId = t.securityId WHERE t.id = ?1")
+    List<Security>findSecurityByTradeId(int tradeId);
 }
