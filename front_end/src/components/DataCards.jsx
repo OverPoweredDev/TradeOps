@@ -11,7 +11,7 @@ class DataCards extends Component {
     render() {
         return (
             <div>
-            <div className='card-deck row row-cols-1 row-cols-md-3 g-4 bg-primary d-flex justify-content-around'>
+            <div className='row row-cols-1 row-cols-md-3 g-4 bg-primary d-flex justify-content-around'>
                 <div className="col-sm w-25 p-3">
                     <div className="card h-100">
                         <div className="card-body text-center">

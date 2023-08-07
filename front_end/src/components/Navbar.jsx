@@ -18,38 +18,38 @@ class Navbar extends Component {
         return (
             <div >
         <nav className="navbar navbar-expand navbar-dark bg-primary">
-            <a href="#" className='navbar-brand'>
+            <a href="#" className='navbar-brand font-weight-bold' style={{marginLeft: "40px"}}>
                 Bonds App
             </a>
             
             <div className='container'>
-                <div className="navbar-nav mr-auto rowjustify-content-around">
-                    <li className="nav-item col-2 ">
+                <div className="navbar-nav mr-auto  rowjustify-content-around">
+                    <li className="nav-item col p-3">
                         <Link to={'/home'} className='nav-link text-white'>
                             Dashboard
                         </Link>
                     </li>
 
-                    <li className="nav-item col-2">
+                    <li className="nav-item col p-3">
                         <Link to={'/report'} className="nav-link text-white">
                             Report
                         </Link>
                     </li>
 
-                    <li className="nav-item col-2">
+                    <li className="nav-item col-2 p-3">
                         <Link to={'/usertrades'} className="nav-link text-white">
                             Trade Table
                         </Link>
                     </li>
 
-                    <li className="nav-item col-2">
+                    <li className="nav-item col p-3">
                         <Link to={'/security'} className="nav-link text-white">
                             Security
                         </Link>
                     </li>
 
                     
-                        <form class="d-flex col-4 w-100" role="search">
+                        <form class="d-flex col-4 w-100 p-3" role="search">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button class="btn btn-primary" type="submit">Search</button>
                         </form>
@@ -75,7 +75,6 @@ class Navbar extends Component {
                 </Dropdown>
             </div>
         </nav>
-
         </div>
         );
     }
