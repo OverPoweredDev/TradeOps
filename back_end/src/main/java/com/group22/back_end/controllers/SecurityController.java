@@ -100,8 +100,9 @@ public class SecurityController {
     }
 
     @PostMapping("/add")
-    public void addSecurity(@RequestBody Security security) {
-        securityService.addSecurity(security);
+    public Security addSecurity(@RequestBody Security security) {
+        Security newSecurity = securityService.addSecurity(security);
+        return newSecurity;
     }
 
     @PutMapping("update/")

@@ -1,6 +1,8 @@
 package com.group22.back_end.services;
 
 import com.group22.back_end.models.Security;
+import com.group22.back_end.repositories.SecurityRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -13,6 +15,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SecurityService {
+
+    @Autowired
+    private SecurityRepository securityRepository;
+
     public List<Security> getAllSecurities() {
         // SELECT * FROM security
         return new ArrayList<>();
@@ -44,8 +50,8 @@ public class SecurityService {
         return new ArrayList<>();
     }
 
-    public void addSecurity(Security security){
-        //TODO:add logic
+    public Security addSecurity(Security security){
+        return securityRepository.save(security);
     }
 
     public void updateSecurity(Security security) {
