@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 import DataCards from './DataCards';
 import Navbar from './Navbar';
+import axios from "axios";
+import { useState, useEffect } from 'react';
 
-class Trade extends Component {
-  render() {
+function Trade(props) {
+    const [trades, setTrades] = useState([]);
+    useEffect(() => {
+      // Make an API call to fetch data
+      axios.get('http://localhost:8080/trades/get')
+        .then(response => {
+          setTrades(response.data)
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }, []);
     return (
       <div>
 
@@ -26,7 +38,24 @@ class Trade extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            {
+              trades.map(trade => (
+                <tr key={trade.id}>
+                  <td>{trade.id}</td>
+                  <td>{trade.bookId}</td>
+                  <td>{trade.counterpartyId}</td>
+                  <td>{trade.securityId}</td>
+                  <td>{trade.quantity}</td>
+                  <td>{trade.status}</td>
+                  <td>{trade.price}</td>
+                  <td>{trade.buySell}</td>
+                  <td>{trade.tradeDate}</td>
+                  <td>{trade.settlementDate}</td>
+
+                </tr>
+              ))
+            }
+            {/* <tr>
               <td>1</td>
               <td>25</td>
               <td>111907034</td>
@@ -99,7 +128,7 @@ class Trade extends Component {
               <td>25</td>
               <td>New York</td>
               <td>New York</td>
-              </tr>
+              </tr> */}
             {/* Add more rows here */}
           </tbody>
         </table>
@@ -108,6 +137,5 @@ class Trade extends Component {
       </div>
     );
   }
-}
 
 export default Trade;
