@@ -9,16 +9,16 @@ import javax.persistence.Table;
 @Table(name = "user")
 public class User {
     @Id
-    @Column(name = "Id")
+    @Column(name = "ID")
     int id;
 
-    @Column(name = "Name")
+    @Column(name = "NAME")
     String name;
 
-    @Column(name = "Email")
+    @Column(name = "EMAIL")
     String email;
 
-    @Column(name = "Role")
+    @Column(name = "ROLE")
     String role;
 
     public User() {

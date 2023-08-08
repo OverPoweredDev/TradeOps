@@ -10,34 +10,34 @@ import java.time.LocalDate;
 @Table(name = "trade")
 public class Trade {
     @Id
-    @Column(name = "Id")
+    @Column(name = "ID")
     int id;
 
-    @Column(name = "BookId")
+    @Column(name = "BOOKID")
     int bookId;
 
-    @Column(name = "CounterpartyId")
+    @Column(name = "COUNTERPARTYID")
     int counterpartyId;
 
-    @Column(name = "SecurityId")
+    @Column(name = "SECURITYID")
     int securityId;
 
-    @Column(name = "Quantity")
+    @Column(name = "QUANTITY")
     int quantity;
 
-    @Column(name = "Status")
+    @Column(name = "STATUS")
     String status;
 
-    @Column(name = "Price")
+    @Column(name = "PRICE")
     float price;
 
-    @Column(name = "Buy_Sell")
+    @Column(name = "BUY_SELL")
     String buySell;
 
-    @Column(name = "TradeDate")
+    @Column(name = "TRADEDATE")
     LocalDate tradeDate;
 
-    @Column(name = "SettlementDate")
+    @Column(name = "SETTLEMENTDATE")
     LocalDate settlementDate;
 
     public Trade() {
