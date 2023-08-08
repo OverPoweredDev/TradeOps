@@ -31,8 +31,6 @@ function Security(props) {
         });
     }, []);
 
-    
-
     return (
       <div>
         
