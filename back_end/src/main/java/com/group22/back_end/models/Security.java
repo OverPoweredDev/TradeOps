@@ -10,29 +10,31 @@ import java.util.Date;
 @Table(name = "security")
 public class Security {
     @Id
+    @Column(name = "ID")
     private int securityId;
+
     @Column(name = "ISIN",nullable = false)
     private int isin;
 
     @Column(name = "CUSIP",nullable = false)
     private int cusip;
 
-    @Column(name = "Issuer",nullable = false)
+    @Column(name = "ISSUER",nullable = false)
     private String issuer;
 
-    @Column(name = "MaturityDate")
+    @Column(name = "MATURITYDATE")
     private Date maturityDate;
 
-    @Column(name = "Coupon")
+    @Column(name = "COUPON")
     private float coupon;
 
-    @Column(name = "Type")
+    @Column(name = "TYPE")
     private String securityType;
 
-    @Column(name = "FaceValue")
+    @Column(name = "FACEVALUE")
     private float faceValue;
 
-    @Column(name = "Status")
+    @Column(name = "STATUS")
     private String status;
 
     public Security() {
@@ -48,6 +50,7 @@ public class Security {
         this.securityType = securityType;
         this.faceValue = faceValue;
         this.status = status;
+        this.securityType = securityType;
     }
 
     public int getSecurityId() {

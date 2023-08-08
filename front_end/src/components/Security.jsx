@@ -1,9 +1,22 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import DataCards from './DataCards';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
-export default class Security extends Component {
-  render() {
+function Security(props) {
+  const [bondData, setBond] = useState([]);
+    useEffect(() => {
+      // Make an API call to fetch data
+      axios.get('http://localhost:8080/securities/get')
+        .then(response => {
+          setBond(response.data)
+          console.log(response.data)
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }, []);
     return (
       <div>
         
@@ -25,7 +38,23 @@ export default class Security extends Component {
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+                  {
+                    bondData.map(bond => (
+                      <tr key={bond.securityId}>
+                        <td>{bond.securityId}</td>
+                        <td>{bond.isin}</td>
+                        <td>{bond.cusip}</td>
+                        <td>{bond.issuer}</td>
+                        <td>{bond.maturityDate}</td>
+                        <td>{bond.coupon}</td>
+                        <td>{bond.type}</td>
+                        <td>{bond.faceValue}</td>
+                        <td>{bond.status}</td>
+                      </tr>
+                    ))
+                    }
+
+                {/* <tr>
                     <td>XY2344</td>
                     <td>123456789876</td>
                     <td>AB1234567</td>
@@ -92,7 +121,7 @@ export default class Security extends Component {
                     <td>Govt. Bond</td>
                     <td>100,000</td>
                     <td>Active</td>
-                    </tr>
+                    </tr> */}
                 {/* Add more rows here */}
                 </tbody>
             </table>
@@ -100,4 +129,5 @@ export default class Security extends Component {
       </div>
     )
   }
-}
+
+  export default Security
