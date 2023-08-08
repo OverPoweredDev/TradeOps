@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController()
 @RequestMapping("/trades")
+@CrossOrigin(origins = "*")
 public class TradeController {
 
     private TradeService tradeService;
