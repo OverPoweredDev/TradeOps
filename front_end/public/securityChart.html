@@ -10,6 +10,12 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
    <script>
       var chrt = document.getElementById("chartId").getContext("2d");
+      // function numberSecurities(){
+      //    axios({
+      //       url: "http://localhost:8080/securities/numberSecurities",
+      //       method: "GET"
+      //    })
+      // }
       var chartId = new Chart(chrt, {
          type: 'doughnut',
          data: {

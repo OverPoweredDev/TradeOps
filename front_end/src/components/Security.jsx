@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
-import Navbar from './Navbar'
 import DataCards from './DataCards';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Button from 'react-bootstrap/esm/Button';
+
+function deleteSecurity(id){
+  axios({
+    url: "http://localhost:8080/delete/" + id,
+    method: "POST"
+  })
+  .then((res) => { console.log("http://localhost:8080/delete/" + id) })
+  .catch((err) => { console.log("http://localhost:8080/delete/" + id) });
+}
 
 function Security(props) {
   const [bondData, setBond] = useState([]);
@@ -50,6 +59,7 @@ function Security(props) {
                         <td>{bond.type}</td>
                         <td>{bond.faceValue}</td>
                         <td>{bond.status}</td>
+                        <td><Button variant='contained' onClick={deleteSecurity(bond.securityId)}>Delete</Button></td>
                       </tr>
                     ))
                     }
