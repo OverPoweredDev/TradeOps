@@ -18,6 +18,9 @@ public class Book {
     @OneToMany(mappedBy = "bookId")
     List<BookUser> bookUsers = new ArrayList<>();
 
+    @OneToMany(mappedBy = "bookId")
+    List<Trade> trades = new ArrayList<>();
+
     public Book() {
     }
 
