@@ -37,6 +37,18 @@ public class TradeController {
         return ResponseEntity.ok().body(response);
     }
 
+    @GetMapping("/numberCompleted")
+    public ResponseEntity getCompletedTrades() {
+        int response = tradeService.getNumberOfCompletedTrades();
+        return ResponseEntity.ok().body(response);
+    }
+
+    @GetMapping("/numberPending")
+    public ResponseEntity getPendingTrades() {
+        int response = tradeService.getNumberOfPendingTrades();
+        return ResponseEntity.ok().body(response);
+    }
+
     @GetMapping("get/{tradeId}")
     public ResponseEntity getTradeById(@PathVariable int tradeId) {
         System.out.println("/trades/get?Id: retrieving a by Id");

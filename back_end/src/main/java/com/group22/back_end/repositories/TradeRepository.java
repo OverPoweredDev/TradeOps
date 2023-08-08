@@ -15,6 +15,12 @@ public interface TradeRepository extends JpaRepository<Trade,Integer> {
     @Query("SELECT t FROM Trade t WHERE t.id = ?1")
     List<Trade> findTradeById(int tradeId);
 
+    @Query("SELECT COUNT(t) FROM Trade t WHERE t.status = 'Pending'")
+    int findNumberOfPendingTrades();
+
+    @Query("SELECT COUNT(t) FROM Trade t WHERE t.status = 'Completed'")
+    int findNumberOfCompletedTrades();
+
     @Query("SELECT s FROM Security s INNER JOIN Trade t ON s.securityId = t.securityId WHERE t.id = ?1")
     List<Security>findSecurityByTradeId(int tradeId);
 }

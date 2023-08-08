@@ -20,10 +20,17 @@ public class TradeService {
         return tradeRepository.findAll();
     }
 
+    public int getNumberOfPendingTrades() {
+        return tradeRepository.findNumberOfPendingTrades();
+    }
+
+    public int getNumberOfCompletedTrades() {
+        return tradeRepository.findNumberOfCompletedTrades();
+    }
+
     public List<Trade> getTradeById(int tradeId) {
         // SELECT * FROM trade t WHERE t.Id = ?1
         return tradeRepository.findTradeById(tradeId);
-
     }
 
     public List<Security> getSecurityByTradeId(int tradeId) {
@@ -46,7 +53,6 @@ public class TradeService {
         tradeToUpdate.setBuySell(trade.getBuySell());
         tradeToUpdate.setTradeDate(trade.getTradeDate());
         tradeToUpdate.setSettlementDate(trade.getSettlementDate());
-
     }
 
     public void deleteTradeById(int tradeId) {
