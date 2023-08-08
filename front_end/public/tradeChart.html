@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html>
+<head>
+   <meta charset- "UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <title>chart.js</title>
+</head>
+<body>
+   <canvas id="chartId" aria-label="chart" height="450" width="450"></canvas>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
+   <script>
+      var chrt = document.getElementById("chartId").getContext("2d");
+      var chartId = new Chart(chrt, {
+         type: 'doughnut',
+         data: {
+            labels: ["Completed", "Processing", "Rejected"],
+            datasets: [{
+            label: "Trade Status",
+            data: [20, 40, 10],
+            backgroundColor: ['red', 'aqua', 'pink'],
+            hoverOffset: 10
+            }],
+         },
+         options: {
+            responsive: false,
+         },
+      });
+   </script>
+</body>
+</html>

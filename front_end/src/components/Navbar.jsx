@@ -25,7 +25,7 @@ class Navbar extends Component {
             <div className='container'>
                 <div className="navbar-nav mr-auto  justify-content-md-center">
                     <li className=" col p-3">
-                        <Link to={'/home'} className='nav-link text-white'>
+                        <Link to={'/'} className='nav-link text-white'>
                             Dashboard
                         </Link>
                     </li>
