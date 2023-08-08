@@ -6,13 +6,7 @@ export default class Security extends Component {
   render() {
     return (
       <div>
-        <div>
-            <Navbar />
-        </div>
-
-        <div>
-            <DataCards/>
-        </div>
+        
 
         <div className="container mt-5">
       
