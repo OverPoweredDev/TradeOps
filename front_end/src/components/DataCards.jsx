@@ -69,7 +69,7 @@ function DataCards(props) {
                                     <p className="card-text">{trades.length}</p>
                                 </div>
                                 <div className='col'>
-                                    <img className="card-img-right img-fluid w-25" src={tradeimg} alt="Card image cap" />
+                                    <img className="card-img-right img-fluid w-60" src={tradeimg} alt="Card image cap" />
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@ function DataCards(props) {
                                     <p className="card-text">{bondData.length}</p>
                                 </div>
                                 <div className='col w-50'>
-                                    <img className="card-img-right img-fluid w-25" src={securityimg} alt="Card image cap"></img>
+                                    <img className="card-img-right img-fluid w-60" src={securityimg} alt="Card image cap"></img>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +101,7 @@ function DataCards(props) {
                                     <p className="card-text">{bondPast}</p>
                                 </div>
                                 <div className='col w-50'>
-                                    <img className="card-img-right img-fluid w-25" src={bondimg} alt="Card image cap"></img>
+                                    <img className="card-img-right img-fluid w-60" src={bondimg} alt="Card image cap"></img>
                                 </div>
                             </div>
                         </div>
