@@ -37,7 +37,7 @@ public class SecurityController {
 
     @GetMapping(value = "pastMaturity", params = "date")
     public ResponseEntity getSecuritiesPastMaturityByDate(@RequestParam(value = "date") String date) {
-        System.out.println("/securities/pastMaturity?date: retrieving securities matured wrt date");
+        System.out.println("/securities/pastMaturity?date: retrieving number of securities matured wrt date");
 
         if (!isDateValid(date)) {
             return ResponseEntity.badRequest().body("Format date as yyyy-MM-dd");
@@ -46,6 +46,14 @@ public class SecurityController {
         LocalDate localDate = LocalDate.parse(date);
         int response = securityService.getSecuritiesPastMaturityByDate(localDate);
         return ResponseEntity.ok().body(response);
+    }
+
+    @GetMapping(value = "numberSecurities")
+    public ResponseEntity getAllSecurities() {
+        System.out.println("/securities/numberSecurities: retrieving total number of securities");
+
+        List<Security> response = securityService.getAllSecurities();
+        return ResponseEntity.ok().body(response.size());
     }
 
     @GetMapping(value = "get")
