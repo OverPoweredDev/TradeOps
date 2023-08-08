@@ -40,14 +40,11 @@ function Trade(props) {
       </div>
     
       <div className="container mt-5">
-<<<<<<< HEAD
 
       <a href="/AddTrade">
                 <button className='btn btn-primary m-3'>Initiate New Trade</button>
             </a>
-=======
         
->>>>>>> ec4876e449a9ec7e5b724771b3c1c56372cc55a8
       
         <table className="table table-bordered table-success table-striped">
           <thead>
