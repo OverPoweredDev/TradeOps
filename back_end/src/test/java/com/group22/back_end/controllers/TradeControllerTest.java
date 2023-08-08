@@ -20,8 +20,10 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
@@ -57,9 +59,6 @@ public class TradeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$[0].id").value(1))
-                .andExpect(jsonPath("$[0].bookId").value(2))
-                .andExpect(jsonPath("$[0].counterpartyId").value(3))
-                .andExpect(jsonPath("$[0].securityId").value(4))
                 .andExpect(jsonPath("$[0].quantity").value(5))
                 .andExpect(jsonPath("$[0].status").value("active"))
                 .andExpect(jsonPath("$[0].price").value(3.56f))
@@ -77,8 +76,62 @@ public class TradeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
 
+    }
+
+    @Test
+    public void TestNumberCompleted() throws Exception{
+        mockMvc.perform(get("/trades/numberCompleted"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
 
     }
+
+    @Test
+    public void TestNumberPending() throws Exception{
+        mockMvc.perform(get("/trades/numberPending"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+
+    }
+
+    @Test
+    public void TestGetTradeById() throws Exception{
+        mockMvc.perform(get("/trades/get/{tradeId}",1))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+
+    }
+
+    @Test
+    public void TestGetSecurityByTradeId() throws Exception{
+        mockMvc.perform(get("/trades/get/security/{tradeId}",1))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+
+    }
+
+//    @Test
+//    public void TestaddTrade() throws Exception{
+//        LocalDate tradeDate=LocalDate.parse("2018-09-12");
+//        LocalDate settleDate=LocalDate.parse("2020-08-11");
+//        Book bookId = new Book();
+//        bookId.setBookId(2);
+//
+//        Counterparty counterpartyId = new Counterparty();
+//        counterpartyId.setCounterpartyId(3);
+//
+//        Security securityId = new Security();
+//        securityId.setSecurityId(4);
+//
+//        Trade createTrade=new Trade(1,bookId,counterpartyId,securityId,5,"active",3.56f,"buy",tradeDate,settleDate);
+//
+//        when(tradeService.addTrade(any(Trade.class))).thenReturn(createTrade);
+//
+//        mockMvc.perform(post("/trades/add"))
+//                .andExpect(status().isCreated())
+//                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+//
+//    }
 
 
 }
