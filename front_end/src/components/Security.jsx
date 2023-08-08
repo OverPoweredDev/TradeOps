@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import DataCards from './DataCards';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-<<<<<<< HEAD
 import AddSecurity from './AddSecurity';
 
 import { useForm, SubmitHandler } from "react-hook-form"
-=======
 import Button from 'react-bootstrap/esm/Button';
 
 function deleteSecurity(id){
@@ -17,7 +15,6 @@ function deleteSecurity(id){
   .then((res) => { console.log("http://localhost:8080/delete/" + id) })
   .catch((err) => { console.log("http://localhost:8080/delete/" + id) });
 }
->>>>>>> ec4876e449a9ec7e5b724771b3c1c56372cc55a8
 
 function Security(props) {
   const [searchTerm, setSearchTerm] = useState(''); 
@@ -51,17 +48,14 @@ function Security(props) {
         />
       </div>
         <div className="container mt-5">
-<<<<<<< HEAD
 
             <a href="/AddSecurity">
                 <button className='btn btn-primary m-3'>Add New Security</button>
             </a>
             
-            <table className="table table-bordered">
-=======
+            {/* <table className="table table-bordered"> */}
       
             <table className="table table-bordered table-success table-striped">
->>>>>>> ec4876e449a9ec7e5b724771b3c1c56372cc55a8
                 <thead>
                 <tr>
                     <th>Id</th>
