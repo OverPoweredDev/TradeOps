@@ -9,18 +9,18 @@ public class BookUser {
     @Column(name = "BOOKUSERID")
     int bookUserId;
 
-    @ManyToMany
-    @JoinColumn(name = "BOOKID")
-    Book bookId;
+//    @ManyToMany
+    @Column(name = "BOOKID")
+    int bookId;
 
-    @ManyToMany
-    @JoinColumn(name = "USERID")
-    User userId;
+//    @ManyToMany
+    @Column(name = "USERID")
+    int userId;
 
     public BookUser() {
     }
 
-    public BookUser(int bookUserId, Book bookId, User userId) {
+    public BookUser(int bookUserId, int bookId, int userId) {
         this.bookUserId = bookUserId;
         this.bookId = bookId;
         this.userId = userId;
@@ -34,19 +34,19 @@ public class BookUser {
         this.bookUserId = bookUserId;
     }
 
-    public Book getBookId() {
+    public int getBookId() {
         return bookId;
     }
 
-    public void setBookId(Book bookId) {
+    public void setBookId(int bookId) {
         this.bookId = bookId;
     }
 
-    public User getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(User userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 }
