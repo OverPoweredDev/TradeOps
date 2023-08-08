@@ -23,36 +23,37 @@ class Navbar extends Component {
             </a>
             
             <div className='container'>
-                <div className="navbar-nav mr-auto  rowjustify-content-around">
-                    <li className="nav-item col p-3">
+                <div className="navbar-nav mr-auto  justify-content-md-center">
+                    <li className=" col p-3">
                         <Link to={'/home'} className='nav-link text-white'>
                             Dashboard
                         </Link>
                     </li>
 
-                    <li className="nav-item col p-3">
+                    {/* <li className="nav-item col p-3">
                         <Link to={'/report'} className="nav-link text-white">
                             Report
                         </Link>
-                    </li>
+                    </li> */}
 
-                    <li className="nav-item col-2 p-3">
-                        <Link to={'/usertrades'} className="nav-link text-white">
-                            Trade Table
-                        </Link>
-                    </li>
-
-                    <li className="nav-item col p-3">
+                    <li className=" col p-3">
                         <Link to={'/security'} className="nav-link text-white">
                             Security
                         </Link>
                     </li>
 
+                    <li className=" col-md-auto p-3">
+                        <Link to={'/usertrades'} className="nav-link text-white">
+                            Trade Table
+                        </Link>
+                    </li>
+
+
                     
-                        <form class="d-flex col-4 w-100 p-3" role="search">
+                        {/* <form class="d-flex col-4 w-100 p-3" role="search">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button class="btn btn-primary" type="submit">Search</button>
-                        </form>
+                        </form> */}
 
                     
                 </div>
