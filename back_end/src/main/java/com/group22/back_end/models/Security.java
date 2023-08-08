@@ -50,6 +50,7 @@ public class Security {
         this.securityType = securityType;
         this.faceValue = faceValue;
         this.status = status;
+        this.securityType = securityType;
     }
 
     public int getSecurityId() {
