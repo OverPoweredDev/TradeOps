@@ -30,7 +30,7 @@ function Security(props) {
         <div className="container mt-5">
 
             <a href="/AddSecurity">
-                <button className='btn btn-primary'>Add New Security</button>
+                <button className='btn btn-primary m-3'>Add New Security</button>
             </a>
             
             <table className="table table-bordered">
