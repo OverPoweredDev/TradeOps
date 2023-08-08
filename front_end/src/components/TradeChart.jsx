@@ -4,59 +4,33 @@ import axios from 'axios';
 import { Pie } from "react-chartjs-2";
 
 function TradeChart() {
-    const [numSec, setnumsec] = useState([]);
+    const [numComp, setnumcomp] = useState([]);
 
     useEffect(() => {
       // Make an API call to fetch data
-      axios.get('http://localhost:8080/securities/numberSecurities')
+      axios.get('http://localhost:8080/trades/numberCompleted')
         .then(response => {
-          setnumsec(response.data)
-          console.log("number securities")
-          console.log(response.data)
+          setnumcomp(response.data)
         })
         .catch(error => {
           console.error('Error fetching data:', error);
         });
     }, []);
 
-    const [numPast, setnumpast] = useState([]);
-    const date = new Date();
+    const [numPend, setnumpend] = useState([]);
 
-    let currentDay= String(date.getDate()).padStart(2, '0');
-
-    let currentMonth = String(date.getMonth()+1).padStart(2,"0");
-
-    let currentYear = date.getFullYear();
-
-    let currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
     useEffect(() => {
       // Make an API call to fetch data
-      axios.get('http://localhost:8080/securities/pastMaturity?date='+currentDate)
+      axios.get('http://localhost:8080/trades/numberPending')
         .then(response => {
-          setnumpast(response.data)
-          console.log(response.data)
+          setnumpend(response.data)
         })
         .catch(error => {
           console.error('Error fetching data:', error);
         });
     }, []);
 
-
-    const [numAbout, setnumabout] = useState([]);
-
-    useEffect(() => {
-      // Make an API call to fetch data
-      axios.get('http://localhost:8080/securities/aboutToMature?date=' + currentDate + '&alertWindow=7')
-        .then(response => {
-          setnumabout(response.data)
-          console.log(response.data)
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-        });
-    }, []);
-
-    const labels = ["Immature", "Matured", "About to mature"];
+    const labels = ["Pending", "Completed"];
     const data = {
     labels: labels,
 
@@ -68,17 +42,20 @@ function TradeChart() {
     datasets: [
         {
         label: "My First dataset",
-        backgroundColor: ['red', 'aqua', 'pink'],
+        backgroundColor: ['red', 'aqua'],
         borderColor: "rgb(0,0,255)",
         type: 'doughnut',
-        data: [numSec-numPast-numAbout, numPast, numAbout],
+        data: [numPend, numComp],
         },
     ],
     };
 
   return (
-    <div>
-      <Pie data={data} />
+    <div className='card shadow-2-strong'>
+        <div className='card-body'>
+            <center><p class="text-uppercase mb-2"><strong>Trade Status</strong></p></center>
+            <Pie data={data} />
+        </div>
     </div>
   );
 };
