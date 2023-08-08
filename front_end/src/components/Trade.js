@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 
 function Trade(props) {
     const [trades, setTrades] = useState([]);
+     const [searchTerm, setSearchTerm] = useState(''); 
     useEffect(() => {
       // Make an API call to fetch data
       axios.get('http://localhost:8080/trades/get')
@@ -18,9 +19,20 @@ function Trade(props) {
     }, []);
     return (
       <div>
-
+          <div className="container mt-3 d-flex justify-content-end"> {/* Shift search bar to the right */}
+         <div className="mr-3">
+          <label htmlFor="searchName"  className="font-weight-bold">Search:    </label>
+        </div>
+        <input
+          type="text"
+          placeholder=""
+          value={searchTerm}
+          onChange={e => setSearchTerm(e.target.value)}
+        />
+      </div>
     
       <div className="container mt-5">
+        
       
         <table className="table table-bordered">
           <thead>
