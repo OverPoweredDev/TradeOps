@@ -13,21 +13,19 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 @Service
 public class LoginService {
     Map<String, String> mockPasswordList = new HashMap<>();
+
     LoginService() {
-        mockPasswordList.put("admin", "password");
+        mockPasswordList.put("admin", "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8");
     }
+
     public boolean checkLoginDetails(String username, String password) {
         if(!mockPasswordList.containsKey(username)) {
+            System.out.println("here");
             return false;
         }
 
         String encryptedPassword = bytesToHex(digest(password.getBytes(UTF_8), "SHA-256"));
-        if(Objects.equals(mockPasswordList.get(username), encryptedPassword)) {
-            System.out.println(encryptedPassword);
-            return true;
-        }
-
-        return false;
+        return Objects.equals(mockPasswordList.get(username), encryptedPassword);
     }
 
     public static byte[] digest(byte[] input, String algorithm) {
