@@ -1,13 +1,26 @@
 import React, { Component } from 'react'
-import Navbar from './Navbar'
 import DataCards from './DataCards';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+<<<<<<< HEAD
 import AddSecurity from './AddSecurity';
 
 import { useForm, SubmitHandler } from "react-hook-form"
+=======
+import Button from 'react-bootstrap/esm/Button';
+
+function deleteSecurity(id){
+  axios({
+    url: "http://localhost:8080/delete/" + id,
+    method: "POST"
+  })
+  .then((res) => { console.log("http://localhost:8080/delete/" + id) })
+  .catch((err) => { console.log("http://localhost:8080/delete/" + id) });
+}
+>>>>>>> ec4876e449a9ec7e5b724771b3c1c56372cc55a8
 
 function Security(props) {
+  const [searchTerm, setSearchTerm] = useState(''); 
   const [bondData, setBond] = useState([]);
     useEffect(() => {
       // Make an API call to fetch data
@@ -26,14 +39,29 @@ function Security(props) {
     return (
       <div>
         
-
+      <div className="container mt-3 d-flex justify-content-end"> {/* Shift search bar to the right */}
+         <div className="mr-3">
+          <label htmlFor="searchName"  className="font-weight-bold">Search:    </label>
+        </div>
+        <input
+          type="text"
+          placeholder=""
+          value={searchTerm}
+          onChange={e => setSearchTerm(e.target.value)}
+        />
+      </div>
         <div className="container mt-5">
+<<<<<<< HEAD
 
             <a href="/AddSecurity">
                 <button className='btn btn-primary m-3'>Add New Security</button>
             </a>
             
             <table className="table table-bordered">
+=======
+      
+            <table className="table table-bordered table-success table-striped">
+>>>>>>> ec4876e449a9ec7e5b724771b3c1c56372cc55a8
                 <thead>
                 <tr>
                     <th>Id</th>
@@ -60,6 +88,7 @@ function Security(props) {
                         <td>{bond.type}</td>
                         <td>{bond.faceValue}</td>
                         <td>{bond.status}</td>
+                        <td><Button variant='contained' onClick={deleteSecurity(bond.securityId)}>Delete</Button></td>
                       </tr>
                     ))
                     }
