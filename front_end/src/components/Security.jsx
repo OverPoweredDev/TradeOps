@@ -14,6 +14,7 @@ function deleteSecurity(id){
 }
 
 function Security(props) {
+  const [searchTerm, setSearchTerm] = useState(''); 
   const [bondData, setBond] = useState([]);
     useEffect(() => {
       // Make an API call to fetch data
@@ -29,10 +30,20 @@ function Security(props) {
     return (
       <div>
         
-
+      <div className="container mt-3 d-flex justify-content-end"> {/* Shift search bar to the right */}
+         <div className="mr-3">
+          <label htmlFor="searchName"  className="font-weight-bold">Search:    </label>
+        </div>
+        <input
+          type="text"
+          placeholder=""
+          value={searchTerm}
+          onChange={e => setSearchTerm(e.target.value)}
+        />
+      </div>
         <div className="container mt-5">
       
-            <table className="table table-bordered">
+            <table className="table table-bordered table-success table-striped">
                 <thead>
                 <tr>
                     <th>Id</th>
