@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
+import DataCards from './DataCards';
+import Navbar from './Navbar';
 
-function Trade(props) {
+class Trade extends Component {
+  render() {
     return (
-    <div className="container mt-5">
+      <div>
+
+        <div>
+            <Navbar />
+        </div>
+
+        <div>
+            <DataCards/>
+        </div>
+
+      
+      <div className="container mt-5">
       
         <table className="table table-bordered">
           <thead>
@@ -98,7 +112,10 @@ function Trade(props) {
           </tbody>
         </table>
       </div>
+
+      </div>
     );
+  }
 }
 
 export default Trade;

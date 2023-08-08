@@ -5,6 +5,9 @@ import {Routes,Route} from 'react-router-dom';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import DataCards from './components/DataCards';
+import Trade from './components/Trade';
+import Security from './components/Security';
+
 
 
 export default class App extends Component {
@@ -13,17 +16,15 @@ export default class App extends Component {
       <div>
         <Navbar />
 
-        <div className="cards">
+        <div>
           <DataCards/>
         </div>
 
         <div className='container mt-3'>
           <Routes>
             {/* <Route path='/home' /> */}
-            <Route path='/report' />
-            <Route path='/userTrade' />
-            <Route path='security' />
-            
+            <Route path="/userTrade" element={<Trade />}/>
+            <Route path='/security' />
           </Routes>
         </div>
       </div>
