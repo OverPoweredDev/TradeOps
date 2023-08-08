@@ -11,10 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-
 public interface TradeRepository extends JpaRepository<Trade,Integer> {
-
-
     @Query("SELECT t FROM Trade t WHERE t.id = ?1")
     List<Trade> findTradeById(int tradeId);
 

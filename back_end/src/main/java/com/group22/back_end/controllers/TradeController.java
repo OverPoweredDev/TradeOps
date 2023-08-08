@@ -34,7 +34,7 @@ public class TradeController {
     public ResponseEntity getTradeById(@PathVariable int tradeId) {
         System.out.println("/trades/get?Id: retrieving a by Id");
         List<Trade> response = tradeService.getTradeById(tradeId);
-        return ResponseEntity.ok().body((response));
+        return ResponseEntity.ok().body(response);
     }
 
     @GetMapping("get/security/{tradeId}")
