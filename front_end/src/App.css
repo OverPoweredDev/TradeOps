@@ -41,3 +41,19 @@
 .cards{
   margin-bottom: 100px;
 }
+
+.login .form-control{
+  background-color: #DDDDDD;
+}
+
+.login{
+  margin-top: 10%;
+}
+
+.login .login-img{
+  size: 10px;
+}
+
+.login .login-btn{
+  background-color: rgb(106, 55, 233);
+}
