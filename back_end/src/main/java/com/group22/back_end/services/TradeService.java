@@ -25,10 +25,10 @@ public class TradeService {
 
     }
 
-//    public List<Security> getSecurityByTradeId(int tradeId) {
-//        // SELECT * FROM security s INNER JOIN trade t ON s.Id = t.SecurityId WHERE t.Id = ?1
-//        return tradeRepository.findSecurityByTradeId(tradeId);
-//    }
+    public List<Security> getSecurityByTradeId(int tradeId) {
+        // SELECT * FROM security s INNER JOIN trade t ON s.SecurityId = t.SecurityId WHERE t.Id = ?1
+        return tradeRepository.findSecurityByTradeId(tradeId);
+    }
 
     public Trade addTrade(Trade trade) {
         return tradeRepository.save(trade);

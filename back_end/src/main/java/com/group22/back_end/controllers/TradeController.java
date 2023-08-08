@@ -36,12 +36,12 @@ public class TradeController {
         return ResponseEntity.ok().body((response));
     }
 
-//    @GetMapping("get/security/{tradeId}")
-//    public ResponseEntity getSecurityByTradeId(@PathVariable int tradeId) {
-//        System.out.println("/trades/get/security?Id: retrieving security by tradeId");
-//        List<Security> response = tradeService.getSecurityByTradeId(tradeId);
-//        return ResponseEntity.ok().body(response);
-//    }
+    @GetMapping("get/security/{tradeId}")
+    public ResponseEntity getSecurityByTradeId(@PathVariable int tradeId) {
+        System.out.println("/trades/get/security?Id: retrieving security by tradeId");
+        List<Security> response = tradeService.getSecurityByTradeId(tradeId);
+        return ResponseEntity.ok().body(response);
+    }
 
 
     @PostMapping("/add")
