@@ -10,10 +10,10 @@ import javax.persistence.Table;
 @Table(name = "book")
 public class Book {
     @Id
-    @Column(name = "Id",nullable = false)
+    @Column(name = "ID",nullable = false)
     private int bookId;
 
-    @Column(name = "BookName")
+    @Column(name = "BOOKNAME")
     private String bookName;
 
     public Book() {

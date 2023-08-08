@@ -9,13 +9,13 @@ import javax.persistence.Table;
 @Table(name = "bookuser")
 public class BookUser {
     @Id
-    @Column(name = "BookUserId")
+    @Column(name = "BOOKUSERID")
     int bookUserId;
 
-    @Column(name = "BookId")
+    @Column(name = "BOOKID")
     int bookId;
 
-    @Column(name = "UserId")
+    @Column(name = "USERID")
     int userId;
 
     public BookUser() {
