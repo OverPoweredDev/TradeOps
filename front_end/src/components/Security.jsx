@@ -50,11 +50,8 @@ function Security(props) {
             <a href="/AddSecurity">
                 <button className='btn btn-primary m-3'>Add New Security</button>
             </a>
-<<<<<<< HEAD
             
             {/* <table className="table table-bordered"> */}
-=======
->>>>>>> cd70b425e088c875c59dbd777fae695d9c629045
       
             <table className="table table-bordered table-success table-striped">
                 <thead>
