@@ -34,7 +34,7 @@ function Security(props) {
       </div>
         <div className="container mt-5">
       
-            <table className="table table-bordered">
+            <table className="table table-bordered table-success table-striped">
                 <thead>
                 <tr>
                     <th>Id</th>

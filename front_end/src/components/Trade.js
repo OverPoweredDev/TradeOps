@@ -33,7 +33,7 @@ function Trade(props) {
         <input
           type="text"
           placeholder=""
-          // className='form-control'
+          className='form-control'
           
           onChange={Filter}
         />
