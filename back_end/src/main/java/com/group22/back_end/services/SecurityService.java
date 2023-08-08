@@ -70,10 +70,11 @@ public class SecurityService {
         securityRepository.save(securityToUpdate);
     }
 
-    public void deleteSecurityById(int securityId) throws ResourceNotFoundException{
+    public void deleteSecurityById(Security securityId) throws ResourceNotFoundException{
 
-        Security securityToDelete = securityRepository.findById(securityId)
+        Security securityToDelete = securityRepository.findById(securityId.getSecurityId())
                 .orElseThrow(() -> new ResourceNotFoundException("Security not found for this id :: " + securityId));
+//        System.out.println(securityToDelete.getSecurityId());
         securityRepository.delete(securityToDelete);
     }
 }

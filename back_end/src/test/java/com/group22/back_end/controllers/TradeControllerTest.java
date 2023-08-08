@@ -1,5 +1,8 @@
 package com.group22.back_end.controllers;
 
+import com.group22.back_end.models.Book;
+import com.group22.back_end.models.Counterparty;
+import com.group22.back_end.models.Security;
 import com.group22.back_end.models.Trade;
 import com.group22.back_end.services.TradeService;
 import org.apache.tomcat.jni.Local;
@@ -36,8 +39,16 @@ public class TradeControllerTest {
 
         LocalDate tradeDate=LocalDate.parse("2018-09-12");
         LocalDate settleDate=LocalDate.parse("2020-08-11");
+        Book bookId = new Book();
+        bookId.setBookId(2);
 
-        Trade trade=new Trade(1,2,3,4,5,"active",3.56f,"buy",tradeDate,settleDate);
+        Counterparty counterpartyId = new Counterparty();
+        counterpartyId.setCounterpartyId(3);
+
+        Security securityId = new Security();
+        securityId.setSecurityId(4);
+
+        Trade trade=new Trade(1,bookId,counterpartyId,securityId,5,"active",3.56f,"buy",tradeDate,settleDate);
 
         List<Trade> trades= List.of(trade);
         when(tradeService.getAllTrades()).thenReturn(trades);

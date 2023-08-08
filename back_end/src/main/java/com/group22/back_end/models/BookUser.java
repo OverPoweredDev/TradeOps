@@ -1,9 +1,6 @@
 package com.group22.back_end.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "bookuser")
@@ -12,16 +9,18 @@ public class BookUser {
     @Column(name = "BOOKUSERID")
     int bookUserId;
 
-    @Column(name = "BOOKID")
-    int bookId;
+    @ManyToOne
+    @JoinColumn(name = "BOOKID")
+    Book bookId;
 
-    @Column(name = "USERID")
-    int userId;
+    @ManyToOne
+    @JoinColumn(name = "USERID")
+    User userId;
 
     public BookUser() {
     }
 
-    public BookUser(int bookUserId, int bookId, int userId) {
+    public BookUser(int bookUserId, Book bookId, User userId) {
         this.bookUserId = bookUserId;
         this.bookId = bookId;
         this.userId = userId;
@@ -35,19 +34,19 @@ public class BookUser {
         this.bookUserId = bookUserId;
     }
 
-    public int getBookId() {
+    public Book getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
+    public void setBookId(Book bookId) {
         this.bookId = bookId;
     }
 
-    public int getUserId() {
+    public User getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(User userId) {
         this.userId = userId;
     }
 }

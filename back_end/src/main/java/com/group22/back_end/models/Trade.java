@@ -1,9 +1,6 @@
 package com.group22.back_end.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -13,14 +10,17 @@ public class Trade {
     @Column(name = "ID")
     int id;
 
-    @Column(name = "BOOKID")
-    int bookId;
+    @ManyToOne
+    @JoinColumn(name = "BOOKID")
+    Book bookId;
 
-    @Column(name = "COUNTERPARTYID")
-    int counterpartyId;
+    @ManyToOne
+    @JoinColumn(name = "COUNTERPARTYID")
+    Counterparty counterpartyId;
 
-    @Column(name = "SECURITYID")
-    int securityId;
+    @ManyToOne
+    @JoinColumn(name = "SECURITYID")
+    Security securityId;
 
     @Column(name = "QUANTITY")
     int quantity;
@@ -44,7 +44,7 @@ public class Trade {
 
     }
 
-    public Trade(int id, int bookId, int counterpartyId, int securityId, int quantity, String status, float price, String buySell, LocalDate tradeDate, LocalDate settlementDate) {
+    public Trade(int id, Book bookId, Counterparty counterpartyId, Security securityId, int quantity, String status, float price, String buySell, LocalDate tradeDate, LocalDate settlementDate) {
         this.id = id;
         this.bookId = bookId;
         this.counterpartyId = counterpartyId;
@@ -65,27 +65,27 @@ public class Trade {
         this.id = id;
     }
 
-    public int getBookId() {
+    public Book getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
+    public void setBookId(Book bookId) {
         this.bookId = bookId;
     }
 
-    public int getCounterpartyId() {
+    public Counterparty getCounterpartyId() {
         return counterpartyId;
     }
 
-    public void setCounterpartyId(int counterpartyId) {
+    public void setCounterpartyId(Counterparty counterpartyId) {
         this.counterpartyId = counterpartyId;
     }
 
-    public int getSecurityId() {
+    public Security getSecurityId() {
         return securityId;
     }
 
-    public void setSecurityId(int securityId) {
+    public void setSecurityId(Security securityId) {
         this.securityId = securityId;
     }
 

@@ -1,9 +1,8 @@
 package com.group22.back_end.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -20,6 +19,9 @@ public class User {
 
     @Column(name = "ROLE")
     String role;
+
+    @OneToMany(mappedBy = "userId")
+    List<BookUser> bookUsers = new ArrayList<>();
 
     public User() {
 

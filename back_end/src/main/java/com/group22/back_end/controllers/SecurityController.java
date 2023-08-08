@@ -146,7 +146,7 @@ public class SecurityController {
     }
 
     @DeleteMapping("/delete/{securityId}")
-    public void deleteSecurityById(@PathVariable int securityId) throws ResourceNotFoundException {
+    public void deleteSecurityById(@PathVariable Security securityId) throws ResourceNotFoundException {
         securityService.deleteSecurityById(securityId);
     }
 }

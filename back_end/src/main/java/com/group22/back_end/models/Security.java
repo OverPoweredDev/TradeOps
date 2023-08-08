@@ -1,10 +1,9 @@
 package com.group22.back_end.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "security")
@@ -36,6 +35,9 @@ public class Security {
 
     @Column(name = "STATUS")
     private String status;
+
+    @OneToMany(mappedBy = "securityId")
+    List<Trade> trades = new ArrayList<>();
 
     public Security() {
     }
