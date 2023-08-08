@@ -7,15 +7,7 @@ class Trade extends Component {
     return (
       <div>
 
-        <div>
-            <Navbar />
-        </div>
-
-        <div>
-            <DataCards/>
-        </div>
-
-      
+    
       <div className="container mt-5">
       
         <table className="table table-bordered">

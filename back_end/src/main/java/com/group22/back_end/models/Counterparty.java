@@ -10,10 +10,10 @@ import javax.persistence.Table;
 @Table(name = "counterparty")
 public class Counterparty {
     @Id
-    @Column(name = "Id")
+    @Column(name = "ID")
     private int counterpartyId;
 
-    @Column(name = "Name")
+    @Column(name = "NAME")
     private String counterpartyName;
 
     public Counterparty() {

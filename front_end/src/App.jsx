@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from './components/Navbar';
 
-import {Routes,Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes,Route} from 'react-router-dom';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import DataCards from './components/DataCards';
@@ -19,12 +19,12 @@ export default class App extends Component {
         <div>
           <DataCards/>
         </div>
-
+      
         <div className='container mt-3'>
           <Routes>
             {/* <Route path='/home' /> */}
-            <Route path="/userTrade" element={<Trade />}/>
-            <Route path='/security' />
+            <Route path="/usertrades" element={<Trade />}/>
+            <Route path='/security' element={<Security />}/>
           </Routes>
         </div>
       </div>
