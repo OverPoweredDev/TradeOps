@@ -15,6 +15,7 @@ function AddSecurity(props) {
     //         data: data,
     //     }).then((res) => console.log(res)).catch((err) => console.log(err))
     // }
+<<<<<<< HEAD
     // const [formData, setFormData] = useState({
     //     securityId: 0,
     //     isin: 0,
@@ -89,6 +90,31 @@ function AddSecurity(props) {
     //     }
         
     //   };
+=======
+    const [formData, setFormData] = useState({
+        securityId: 0,
+        isin: 0,
+        cusip: 0,
+        issuer: '',
+        maturityDate: '',
+        coupon: 0.0,
+        securityType: '',
+        faceValue: 0.0,
+        status: ''
+      });
+    const {securityId, isin, cusip, issuer, maturityDate, coupon, securityType, faceValue, status} = formData;
+      const handleInputChange = (name) => (e) =>{
+        setFormData({...formData, [name]:e.target.value  })
+        //const {name, value} = e.target;
+
+        // setFormData((prevData) => ({
+        //     ...prevData,
+        //     [name]:value,
+        // }));
+
+        // console.log(formData);
+      };
+>>>>>>> d85a863d911239cc04c45582dc483ad2c9b086bf
 
     //   useEffect(() => {
         
@@ -181,7 +207,6 @@ function AddSecurity(props) {
             console.log(err);
         }
     };
-
     return (
         <div className="container-fluid">
         <div className='row login-main'>
@@ -195,49 +220,85 @@ function AddSecurity(props) {
 
             <div className="mb-3">
                 <label  className="form-label"></label>
+<<<<<<< HEAD
                 <input type="number" name='securityId' placeholder="Security ID"  className="form-control" value={securityId} onChange={handleID} />
+=======
+                <input type="number" placeholder="Security ID"  className="form-control" value={securityId}  onChange={handleInputChange("securityId")} />
+>>>>>>> d85a863d911239cc04c45582dc483ad2c9b086bf
                
             </div>
 
             <div className="mb-3">
                 <label  className="form-label"></label>
+<<<<<<< HEAD
                 <input type="number" name='isin'  placeholder="ISIN"  className="form-control"  onChange={handleIsin}/>
+=======
+                <input type="number"  placeholder="ISIN"  className="form-control" value={isin}  onChange={handleInputChange("isin")}/>
+>>>>>>> d85a863d911239cc04c45582dc483ad2c9b086bf
             </div>
 
             <div className="mb-3">
                 <label className="form-label"></label>
+<<<<<<< HEAD
                 <input type="number"name='cusip'  placeholder="CUSIP"  className="form-control"  onChange={handleCusip}/>
+=======
+                <input type="number"  placeholder="CUSIP"  className="form-control" value={cusip}  onChange={handleInputChange("cusip")}/>
+>>>>>>> d85a863d911239cc04c45582dc483ad2c9b086bf
             </div>
 
             <div className="mb-3">
                 <label  className="form-label"></label>
+<<<<<<< HEAD
                 <input type="text" name='issuer' placeholder="ISSUER"  className="form-control"  onChange={handleIssuer}/>
+=======
+                <input type="text" placeholder="ISSUER"  className="form-control" value={issuer} onChange={handleInputChange("issuer")}/>
+>>>>>>> d85a863d911239cc04c45582dc483ad2c9b086bf
             </div>
 
             <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label"></label>
+<<<<<<< HEAD
                 <input type="date" name='maturityDate' placeholder="MaturityDate"  className="form-control"  onChange={handleMaturityData}/>
+=======
+                <input type="date" placeholder="MaturityDate"  className="form-control" value={maturityDate}  onChange={handleInputChange("maturityDate")}/>
+>>>>>>> d85a863d911239cc04c45582dc483ad2c9b086bf
                 
             </div>
 
             <div className="mb-3">
                 <label  className="form-label"></label>
+<<<<<<< HEAD
                 <input type="number"name='coupon' placeholder="Coupon"  className="form-control"  onChange={handleCoupon}/>
+=======
+                <input type="number" placeholder="Coupon"  className="form-control" value={coupon}  onChange={handleInputChange("coupon")}/>
+>>>>>>> d85a863d911239cc04c45582dc483ad2c9b086bf
             </div>
 
             <div className="mb-3">
                 <label className="form-label"></label>
+<<<<<<< HEAD
                 <input type="text" name='type'  placeholder="Type"  className="form-control" onChange={handleType}/>
+=======
+                <input type="text"  placeholder="Type"  className="form-control" value={securityType} onChange={handleInputChange("securityType")}/>
+>>>>>>> d85a863d911239cc04c45582dc483ad2c9b086bf
             </div>
 
             <div className="mb-3">
                 <label className="form-label"></label>
+<<<<<<< HEAD
                 <input type="number" name='faceValue' placeholder="FaceValue"  className="form-control" onChange={handleFaceValue}/>
+=======
+                <input type="number" placeholder="FaceValue"  className="form-control" value={faceValue} onChange={handleInputChange("faceValue")}/>
+>>>>>>> d85a863d911239cc04c45582dc483ad2c9b086bf
             </div>
 
             <div className="mb-3">
                 <label  className="form-label"></label>
+<<<<<<< HEAD
                 <input type="text" name='status' placeholder="Status"  className="form-control" onChange={handleStatus}/>
+=======
+                <input type="text" placeholder="Status"  className="form-control" value={status} onChange={handleInputChange("status")}/>
+>>>>>>> d85a863d911239cc04c45582dc483ad2c9b086bf
             </div>
 
             <div class="d-grid gap-2">
