@@ -14,6 +14,7 @@ public class TradeService {
 
     @Autowired
     private TradeRepository tradeRepository;
+
     public List<Trade> getAllTrades() {
         // SELECT * FROM trade
         return tradeRepository.findAll();

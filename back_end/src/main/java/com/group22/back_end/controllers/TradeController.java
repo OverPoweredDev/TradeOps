@@ -23,6 +23,13 @@ public class TradeController {
         this.tradeService = tradeService;
     }
 
+    @GetMapping("/numberTrades")
+    public ResponseEntity getTradesNumber() {
+        System.out.println("/trades/get: retrieving all trades");
+        List<Trade> response = tradeService.getAllTrades();
+        return ResponseEntity.ok().body(response.size());
+    }
+
     @GetMapping("/get")
     public ResponseEntity getAllTrades() {
         System.out.println("/trades/get: retrieving all trades");
@@ -34,7 +41,7 @@ public class TradeController {
     public ResponseEntity getTradeById(@PathVariable int tradeId) {
         System.out.println("/trades/get?Id: retrieving a by Id");
         List<Trade> response = tradeService.getTradeById(tradeId);
-        return ResponseEntity.ok().body((response));
+        return ResponseEntity.ok().body(response);
     }
 
     @GetMapping("get/security/{tradeId}")

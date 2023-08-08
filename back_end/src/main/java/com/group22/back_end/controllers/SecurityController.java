@@ -24,7 +24,7 @@ public class SecurityController {
 
     @GetMapping(value = "aboutToMature", params = {"date", "alertWindow"})
     public ResponseEntity getSecuritiesAboutToMatureByDate(@RequestParam(value = "date") String date, @RequestParam(value = "alertWindow") int alertWindow) {
-        System.out.println("/securities/get?date: retrieving securities about to mature wrt date");
+        System.out.println("/securities/aboutToMature?date&alertWindow: retrieving securities about to mature wrt date");
 
         if (!isDateValid(date)) {
             return ResponseEntity.badRequest().body("Format date as yyyy-MM-dd");
@@ -34,9 +34,10 @@ public class SecurityController {
         int response = securityService.getSecuritiesAboutToMatureByDate(localDate, alertWindow);
         return ResponseEntity.ok().body(response);
     }
+
     @GetMapping(value = "pastMaturity", params = "date")
     public ResponseEntity getSecuritiesPastMaturityByDate(@RequestParam(value = "date") String date) {
-        System.out.println("/securities/get?date: retrieving securities matured wrt date");
+        System.out.println("/securities/pastMaturity?date: retrieving number of securities matured wrt date");
 
         if (!isDateValid(date)) {
             return ResponseEntity.badRequest().body("Format date as yyyy-MM-dd");
@@ -46,6 +47,15 @@ public class SecurityController {
         int response = securityService.getSecuritiesPastMaturityByDate(localDate);
         return ResponseEntity.ok().body(response);
     }
+
+    @GetMapping(value = "numberSecurities")
+    public ResponseEntity getAllSecurities() {
+        System.out.println("/securities/numberSecurities: retrieving total number of securities");
+
+        List<Security> response = securityService.getAllSecurities();
+        return ResponseEntity.ok().body(response.size());
+    }
+
     @GetMapping(value = "get")
     public ResponseEntity getSecurities() {
         System.out.println("/securities/get: retrieving all securities");
@@ -74,7 +84,7 @@ public class SecurityController {
             LocalDate startDateLocal = LocalDate.parse(startDate);
             LocalDate endDateLocal = LocalDate.parse(endDate);
 
-            if(startDateLocal.isAfter(endDateLocal)) {
+            if (startDateLocal.isAfter(endDateLocal)) {
                 return ResponseEntity.badRequest().body("start date must be before end date");
             }
 
@@ -136,7 +146,7 @@ public class SecurityController {
     }
 
     @DeleteMapping("/delete/{securityId}")
-    public void deleteSecurityById(@PathVariable int securityId) throws ResourceNotFoundException{
+    public void deleteSecurityById(@PathVariable int securityId) throws ResourceNotFoundException {
         securityService.deleteSecurityById(securityId);
     }
 }
