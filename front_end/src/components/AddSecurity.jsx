@@ -26,16 +26,17 @@ function AddSecurity(props) {
         faceValue: 0.0,
         status: ''
       });
+    const {securityId, isin, cusip, issuer, maturityDate, coupon, securityType, faceValue, status} = formData;
+      const handleInputChange = (name) => (e) =>{
+        setFormData({...formData, [name]:e.target.value  })
+        //const {name, value} = e.target;
 
-      const handleInputChange = (e) => {
-        const {name, value} = e.target;
+        // setFormData((prevData) => ({
+        //     ...prevData,
+        //     [name]:value,
+        // }));
 
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: name==='coupon' || 'faceValue' ? parseFloat(value) : value,
-        }));
-
-        console.log(formData);
+        // console.log(formData);
       };
 
     //   useEffect(() => {
@@ -54,7 +55,6 @@ function AddSecurity(props) {
             console.log(err);
         }
     };
-
     return (
         <div className="container-fluid">
         <div className='row login-main'>
@@ -68,49 +68,49 @@ function AddSecurity(props) {
 
             <div className="mb-3">
                 <label  className="form-label"></label>
-                <input type="number" placeholder="Security ID"  className="form-control"  onChange={e => handleInputChange(e)} />
+                <input type="number" placeholder="Security ID"  className="form-control" value={securityId}  onChange={handleInputChange("securityId")} />
                
             </div>
 
             <div className="mb-3">
                 <label  className="form-label"></label>
-                <input type="number"  placeholder="ISIN"  className="form-control"  onChange={handleInputChange}/>
+                <input type="number"  placeholder="ISIN"  className="form-control" value={isin}  onChange={handleInputChange("isin")}/>
             </div>
 
             <div className="mb-3">
                 <label className="form-label"></label>
-                <input type="number"  placeholder="CUSIP"  className="form-control"  onChange={handleInputChange}/>
+                <input type="number"  placeholder="CUSIP"  className="form-control" value={cusip}  onChange={handleInputChange("cusip")}/>
             </div>
 
             <div className="mb-3">
                 <label  className="form-label"></label>
-                <input type="text" placeholder="ISSUER"  className="form-control"  onChange={handleInputChange}/>
+                <input type="text" placeholder="ISSUER"  className="form-control" value={issuer} onChange={handleInputChange("issuer")}/>
             </div>
 
             <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label"></label>
-                <input type="date" placeholder="MaturityDate"  className="form-control"  onChange={handleInputChange}/>
+                <input type="date" placeholder="MaturityDate"  className="form-control" value={maturityDate}  onChange={handleInputChange("maturityDate")}/>
                 
             </div>
 
             <div className="mb-3">
                 <label  className="form-label"></label>
-                <input type="number" placeholder="Coupon"  className="form-control"  onChange={handleInputChange}/>
+                <input type="number" placeholder="Coupon"  className="form-control" value={coupon}  onChange={handleInputChange("coupon")}/>
             </div>
 
             <div className="mb-3">
                 <label className="form-label"></label>
-                <input type="text"  placeholder="Type"  className="form-control" onChange={handleInputChange}/>
+                <input type="text"  placeholder="Type"  className="form-control" value={securityType} onChange={handleInputChange("securityType")}/>
             </div>
 
             <div className="mb-3">
                 <label className="form-label"></label>
-                <input type="number" placeholder="FaceValue"  className="form-control" onChange={handleInputChange}/>
+                <input type="number" placeholder="FaceValue"  className="form-control" value={faceValue} onChange={handleInputChange("faceValue")}/>
             </div>
 
             <div className="mb-3">
                 <label  className="form-label"></label>
-                <input type="text" placeholder="Status"  className="form-control" onChange={handleInputChange}/>
+                <input type="text" placeholder="Status"  className="form-control" value={status} onChange={handleInputChange("status")}/>
             </div>
 
             <div class="d-grid gap-2">

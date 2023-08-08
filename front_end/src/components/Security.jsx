@@ -12,8 +12,8 @@ function updateSecurity(id){
     url: "http://localhost:8080/update/",
     method: "POST"
   })
-  .then((res) => { console.log("http://localhost:8080/delete/" + id) })
-  .catch((err) => { console.log("http://localhost:8080/delete/" + id) });
+  .then((res) => { console.log("http://localhost:8080") })
+  .catch((err) => { console.log("http://localhost:8080/" ) });
 }
 
 function Security(props) {
