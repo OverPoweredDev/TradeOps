@@ -3,6 +3,9 @@ import Navbar from './Navbar'
 import DataCards from './DataCards';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import AddSecurity from './AddSecurity';
+
+import { useForm, SubmitHandler } from "react-hook-form"
 
 function Security(props) {
   const [bondData, setBond] = useState([]);
@@ -17,12 +20,19 @@ function Security(props) {
           console.error('Error fetching data:', error);
         });
     }, []);
+
+    
+
     return (
       <div>
         
 
         <div className="container mt-5">
-      
+
+            <a href="/AddSecurity">
+                <button className='btn btn-primary'>Add New Security</button>
+            </a>
+            
             <table className="table table-bordered">
                 <thead>
                 <tr>
@@ -54,75 +64,6 @@ function Security(props) {
                     ))
                     }
 
-                {/* <tr>
-                    <td>XY2344</td>
-                    <td>123456789876</td>
-                    <td>AB1234567</td>
-                    <td>DB</td>
-                    <td>10/08/2038</td>
-                    <td>5</td>
-                    <td>Govt. Bond</td>
-                    <td>100,000</td>
-                    <td>Active</td>
-
-                </tr>
-
-                <tr>
-                <td>XY2344</td>
-                    <td>123456789876</td>
-                    <td>AB1234567</td>
-                    <td>DB</td>
-                    <td>10/08/2038</td>
-                    <td>5</td>
-                    <td>Govt. Bond</td>
-                    <td>100,000</td>
-                    <td>Active</td>
-                </tr>
-                <tr>
-                <td>XY2344</td>
-                    <td>123456789876</td>
-                    <td>AB1234567</td>
-                    <td>DB</td>
-                    <td>10/08/2038</td>
-                    <td>5</td>
-                    <td>Govt. Bond</td>
-                    <td>100,000</td>
-                    <td>Active</td>
-                    </tr>
-                    <tr>
-                    <td>XY2344</td>
-                    <td>123456789876</td>
-                    <td>AB1234567</td>
-                    <td>DB</td>
-                    <td>10/08/2038</td>
-                    <td>5</td>
-                    <td>Govt. Bond</td>
-                    <td>100,000</td>
-                    <td>Active</td>
-                    </tr>
-                    <tr>
-                    <td>XY2344</td>
-                    <td>123456789876</td>
-                    <td>AB1234567</td>
-                    <td>DB</td>
-                    <td>10/08/2038</td>
-                    <td>5</td>
-                    <td>Govt. Bond</td>
-                    <td>100,000</td>
-                    <td>Active</td>
-                    </tr>
-                    <tr>
-                    <td>XY2344</td>
-                    <td>123456789876</td>
-                    <td>AB1234567</td>
-                    <td>DB</td>
-                    <td>10/08/2038</td>
-                    <td>5</td>
-                    <td>Govt. Bond</td>
-                    <td>100,000</td>
-                    <td>Active</td>
-                    </tr> */}
-                {/* Add more rows here */}
                 </tbody>
             </table>
         </div>
