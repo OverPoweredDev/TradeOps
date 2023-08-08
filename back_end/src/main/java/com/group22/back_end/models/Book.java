@@ -1,10 +1,9 @@
 package com.group22.back_end.models;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "book")
@@ -15,6 +14,9 @@ public class Book {
 
     @Column(name = "BOOKNAME")
     private String bookName;
+
+    @OneToMany(mappedBy = "bookId")
+    List<BookUser> bookUsers = new ArrayList<>();
 
     public Book() {
     }
