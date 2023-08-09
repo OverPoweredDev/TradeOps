@@ -1,6 +1,8 @@
 package com.group22.back_end.controllers;
 
 import com.group22.back_end.exception.ResourceNotFoundException;
+import com.group22.back_end.models.Book;
+import com.group22.back_end.models.Counterparty;
 import com.group22.back_end.models.Security;
 import com.group22.back_end.models.Trade;
 import com.group22.back_end.services.TradeService;
@@ -61,6 +63,18 @@ public class TradeController {
         System.out.println("/trades/get/security?Id: retrieving security by tradeId");
         List<Security> response = tradeService.getSecurityByTradeId(tradeId);
         return ResponseEntity.ok().body(response);
+    }
+
+    @GetMapping("/allbooks")
+    public ResponseEntity getAllBooks(){
+        List<Book> books = tradeService.getAllBooks();
+        return ResponseEntity.ok().body(books);
+    }
+
+    @GetMapping("/allcounterparty")
+    public ResponseEntity getAllCounterparty(){
+        List<Counterparty> counterparties = tradeService.getAlLCounterparty();
+        return ResponseEntity.ok().body(counterparties);
     }
 
 
