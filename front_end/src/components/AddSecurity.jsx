@@ -43,11 +43,86 @@ function AddSecurity(props) {
         
     //   },[formData]);
 
+    // const handleID = (e) => {
+    //     setSecurityId((prevData) => ({
+    //         ...prevData,
+    //         [e.target.name]: parseInt(e.target.value),
+    //     }));
+
+
+    //   };
+
+    //   const handleIsin = (e) => {
+    //     setIsin((prevData) => ({
+    //         ...prevData,
+    //         [e.target.name]: parseInt(e.target.value),
+    //     }));
+    //   };
+
+    //   const handleCusip = (e) => {
+    //     setCusip((prevData) => ({
+    //         ...prevData,
+    //         [e.target.name]: parseInt(e.target.value),
+    //     }));
+    //   };
+
+    //   const handleIssuer = (e) => {
+    //     setIssuer((prevData) => ({
+    //         ...prevData,
+    //         [e.target.name]: e.target.value,
+    //     }));
+    //   };
+
+    //   const handleMaturityData = (e) => {
+    //     setMaturityDate((prevData) => ({
+    //         ...prevData,
+    //         [e.target.name]: e.target.value,
+    //     }));
+    //   };
+
+    //   const handleCoupon = (e) => {
+    //     setCoupon((prevData) => ({
+    //         ...prevData,
+    //         [e.target.name]: parseFloat(e.target.value),
+    //     }));
+    //   };
+
+    //   const handleType = (e) => {
+    //     setSecurityType((prevData) => ({
+    //         ...prevData,
+    //         [e.target.name]: e.target.value,
+    //     }));
+    //   };
+
+    //   const handleFaceValue = (e) => {
+    //     setFaceValue((prevData) => ({
+    //         ...prevData,
+    //         [e.target.name]: parseFloat(e.target.value),
+    //     }));
+    //   };
+
+    //   const handleStatus = (e) => {
+    //     setStatus((prevData) => ({
+    //         ...prevData,
+    //         [e.target.name]: e.target.value,
+    //     }));
+    //   };
+
       const handleSubmit = async (e) => {
         e.preventDefault();
 
         try{
-            const resp = await axios.post('http://localhost:8080/securities/add',formData);
+            const resp = await axios.post('http://localhost:8080/securities/add',{
+                securityId,
+                isin,
+                cusip,
+                issuer,
+                maturityDate,
+                coupon,
+                securityType,
+                faceValue,
+                status
+            });
             console.log('Data Added successfully: ',resp.data);
         }
 
