@@ -1,7 +1,11 @@
 package com.group22.back_end.services;
 
+import com.group22.back_end.models.Book;
+import com.group22.back_end.models.Counterparty;
 import com.group22.back_end.models.Security;
 import com.group22.back_end.models.Trade;
+import com.group22.back_end.repositories.BookRepository;
+import com.group22.back_end.repositories.CounterpartyRepository;
 import com.group22.back_end.repositories.TradeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +18,12 @@ public class TradeService {
 
     @Autowired
     private TradeRepository tradeRepository;
+
+    @Autowired
+    private BookRepository bookRepository;
+
+    @Autowired
+    private CounterpartyRepository counterpartyRepository;
 
     public List<Trade> getAllTrades() {
         // SELECT * FROM trade
@@ -58,5 +68,13 @@ public class TradeService {
     public void deleteTradeById(int tradeId) {
         Trade tradeToDelete=tradeRepository.getById(tradeId);
         tradeRepository.delete(tradeToDelete);
+    }
+
+    public List<Book> getAllBooks() {
+        return bookRepository.findAll();
+    }
+
+    public List<Counterparty> getAlLCounterparty() {
+        return counterpartyRepository.findAll();
     }
 }

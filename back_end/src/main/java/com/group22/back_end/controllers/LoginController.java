@@ -19,6 +19,7 @@ public class LoginController {
     @PostMapping("/login")
     public Boolean doLogin(@RequestBody Map<String,String> loginDetails){
         boolean isAuthenticated = loginService.checkLoginDetails(loginDetails.get("username"),loginDetails.get("password"));
+//        System.out.println(loginDetails.get("username")+loginDetails.get("password"));
         return isAuthenticated;
     }
 }
