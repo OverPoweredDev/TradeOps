@@ -1,13 +1,25 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-
+import axios from 'axios';
 
 
 function Login(props) {
     const {register, handleSubmit, watch, formState: {errors}, } = useForm();
-    const handleLogin = (data) => {
-        console.log('form is submitted')
+    const handleLogin = async (data) => {
         console.log(data)
+        axios.post('http://localhost:8080/app/login', {
+            'username': data.username,
+            'password': data.password
+          })
+          .then((response) => {
+            if(response.data){
+                window.location.replace("http://localhost:3000/dashboard")
+            }else{
+                alert("Try Again\nEmail or Password incorrect")
+            };
+          }, (error) => {
+            console.log(error);
+          });
     }
 
     return (
@@ -24,8 +36,8 @@ function Login(props) {
 
             <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label"></label>
-                <input {...register("email", {required:true})} placeholder="Email Address" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                {errors.email && <span style ={{color:"grey"}}>*Email field cannot be empty.</span>}
+                <input {...register("username", {required:true})} placeholder="Username" type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                {errors.email && <span style ={{color:"grey"}}>*Username field cannot be empty.</span>}
             </div>
             <div className="mb-3">
                 <label htmlFor="exampleInputPassword1" className="form-label"></label>

@@ -70,8 +70,8 @@ const SecurityChart = () => {
     datasets: [
         {
         label: "My First dataset",
-        backgroundColor: ['red', 'aqua', 'pink'],
-        borderColor: "rgb(0,0,255)",
+        backgroundColor: ["rgb(40, 50, 100)", 'rgb(13, 110, 253)', 'rgb(200, 200, 200)'],
+        borderColor: "rgb(255,255,255)",
         type: 'doughnut',
         data: [numSec-numPast-numAbout, numPast, numAbout],
         },
