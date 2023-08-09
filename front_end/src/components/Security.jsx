@@ -7,13 +7,13 @@ import AddSecurity from './AddSecurity';
 import { useForm, SubmitHandler } from "react-hook-form"
 import Button from 'react-bootstrap/esm/Button';
 
-function deleteSecurity(id){
+function updateSecurity(id){
   axios({
-    url: "http://localhost:8080/delete/" + id,
+    url: "http://localhost:8080/update/",
     method: "POST"
   })
-  .then((res) => { console.log("http://localhost:8080/delete/" + id) })
-  .catch((err) => { console.log("http://localhost:8080/delete/" + id) });
+  .then((res) => { console.log("http://localhost:8080") })
+  .catch((err) => { console.log("http://localhost:8080/" ) });
 }
 
 function Security(props) {
@@ -30,8 +30,6 @@ function Security(props) {
           console.error('Error fetching data:', error);
         });
     }, []);
-
-    
 
     return (
       <div>
@@ -52,6 +50,8 @@ function Security(props) {
             <a href="/AddSecurity">
                 <button className='btn btn-primary m-3'>Add New Security</button>
             </a>
+            
+            {/* <table className="table table-bordered"> */}
       
             <table className="table table-bordered table-success table-striped">
                 <thead>
@@ -65,6 +65,7 @@ function Security(props) {
                     <th>Type</th>
                     <th>FaceValue</th>
                     <th>Status</th>
+                    <th>Update</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -80,7 +81,7 @@ function Security(props) {
                         <td>{bond.type}</td>
                         <td>{bond.faceValue}</td>
                         <td>{bond.status}</td>
-                        <td><Button variant='contained' onClick={deleteSecurity(bond.securityId)}>Delete</Button></td>
+                        <td><Button type='button' className='btn btn-success' variant='contained' onClick={updateSecurity(bond.securityId)}>Update</Button></td>
                       </tr>
                     ))
                     }

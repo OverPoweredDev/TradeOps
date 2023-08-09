@@ -79,8 +79,11 @@ const SecurityChart = () => {
     };
 
   return (
-    <div>
-      <Pie data={data} />
+    <div className='card shadow-2-strong'>
+        <div className='card-body'>
+            <center><p class="text-uppercase mb-2"><strong>Security Status</strong></p></center>
+            <Pie data={data} />
+        </div>
     </div>
   );
 };
