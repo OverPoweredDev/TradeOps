@@ -10,9 +10,9 @@ public class Trade {
     @Column(name = "ID")
     int id;
 
-    @ManyToOne
-    @JoinColumn(name = "BOOKID")
-    Book bookId;
+//    @ManyToOne
+    @Column(name = "BOOKID")
+    int bookId;
 
     @ManyToOne
     @JoinColumn(name = "COUNTERPARTYID")
@@ -44,7 +44,7 @@ public class Trade {
 
     }
 
-    public Trade(int id, Book bookId, Counterparty counterpartyId, Security securityId, int quantity, String status, float price, String buySell, LocalDate tradeDate, LocalDate settlementDate) {
+    public Trade(int id, int bookId, Counterparty counterpartyId, Security securityId, int quantity, String status, float price, String buySell, LocalDate tradeDate, LocalDate settlementDate) {
         this.id = id;
         this.bookId = bookId;
         this.counterpartyId = counterpartyId;
@@ -65,11 +65,11 @@ public class Trade {
         this.id = id;
     }
 
-    public Book getBookId() {
+    public int getBookId() {
         return bookId;
     }
 
-    public void setBookId(Book bookId) {
+    public void setBookId(int bookId) {
         this.bookId = bookId;
     }
 

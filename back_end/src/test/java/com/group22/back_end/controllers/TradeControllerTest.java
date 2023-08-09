@@ -50,7 +50,7 @@ public class TradeControllerTest {
         Security securityId = new Security();
         securityId.setSecurityId(4);
 
-        Trade trade=new Trade(1,bookId,counterpartyId,securityId,5,"active",3.56f,"buy",tradeDate,settleDate);
+        Trade trade=new Trade(1,2,counterpartyId,securityId,5,"active",3.56f,"buy",tradeDate,settleDate);
 
         List<Trade> trades= List.of(trade);
         when(tradeService.getAllTrades()).thenReturn(trades);

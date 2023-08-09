@@ -29,84 +29,7 @@ function AddSecurity(props) {
     const {securityId, isin, cusip, issuer, maturityDate, coupon, securityType, faceValue, status} = formData;
       const handleInputChange = (name) => (e) =>{
         setFormData({...formData, [name]:e.target.value  })
-        //const {name, value} = e.target;
-
-        // setFormData((prevData) => ({
-        //     ...prevData,
-        //     [name]:value,
-        // }));
-
-        // console.log(formData);
       };
-
-    //   useEffect(() => {
-        
-    //   },[formData]);
-
-    // const handleID = (e) => {
-    //     setSecurityId((prevData) => ({
-    //         ...prevData,
-    //         [e.target.name]: parseInt(e.target.value),
-    //     }));
-
-
-    //   };
-
-    //   const handleIsin = (e) => {
-    //     setIsin((prevData) => ({
-    //         ...prevData,
-    //         [e.target.name]: parseInt(e.target.value),
-    //     }));
-    //   };
-
-    //   const handleCusip = (e) => {
-    //     setCusip((prevData) => ({
-    //         ...prevData,
-    //         [e.target.name]: parseInt(e.target.value),
-    //     }));
-    //   };
-
-    //   const handleIssuer = (e) => {
-    //     setIssuer((prevData) => ({
-    //         ...prevData,
-    //         [e.target.name]: e.target.value,
-    //     }));
-    //   };
-
-    //   const handleMaturityData = (e) => {
-    //     setMaturityDate((prevData) => ({
-    //         ...prevData,
-    //         [e.target.name]: e.target.value,
-    //     }));
-    //   };
-
-    //   const handleCoupon = (e) => {
-    //     setCoupon((prevData) => ({
-    //         ...prevData,
-    //         [e.target.name]: parseFloat(e.target.value),
-    //     }));
-    //   };
-
-    //   const handleType = (e) => {
-    //     setSecurityType((prevData) => ({
-    //         ...prevData,
-    //         [e.target.name]: e.target.value,
-    //     }));
-    //   };
-
-    //   const handleFaceValue = (e) => {
-    //     setFaceValue((prevData) => ({
-    //         ...prevData,
-    //         [e.target.name]: parseFloat(e.target.value),
-    //     }));
-    //   };
-
-    //   const handleStatus = (e) => {
-    //     setStatus((prevData) => ({
-    //         ...prevData,
-    //         [e.target.name]: e.target.value,
-    //     }));
-    //   };
 
       const handleSubmit = async (e) => {
         e.preventDefault();
@@ -137,7 +60,7 @@ function AddSecurity(props) {
         
 
         <div className='col-4'>
-            <h1>Add New Security</h1>
+            <h1>Add/Update Security</h1>
 
             <form onSubmit={handleSubmit}>
 

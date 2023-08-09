@@ -27,23 +27,23 @@ function Trade(props) {
     return (
       <div>
           <div className="container mt-3 d-flex justify-content-end"> {/* Shift search bar to the right */}
-         <div className="mr-3" id="search-icon">
+         {/* <div className="mr-3" id="search-icon">
           <label htmlFor="searchName"  className="font-weight-bold">Search:    </label>
-        </div>
-        <input
+        </div> */}
+        {/* <input
           type="text"
           placeholder=""
           className='form-control'
           
           onChange={Filter}
         />
-      </div>
+      </div> */}
     
-      <div className="container mt-5">
+      <h1>Trade Table</h1>
 
-      <a href="/AddTrade">
+      {/* <a href="/AddTrade">
                 <button className='btn btn-primary m-3'>Initiate New Trade</button>
-            </a>
+            </a> */}
         
       
         <table className="table table-bordered table-success table-striped">
@@ -66,9 +66,9 @@ function Trade(props) {
               trades.map(trade => (
                 <tr key={trade.id}>
                   <td>{trade.id}</td>
-                  <td>{trade.bookId}</td>
-                  <td>{trade.counterpartyId}</td>
-                  <td>{trade.securityId}</td>
+                  <td>{trade.bookId.bookId}</td>
+                  <td>{trade.counterpartyId.counterpartyId}</td>
+                  <td>{trade.securityId.securityId}</td>
                   <td>{trade.quantity}</td>
                   <td>{trade.status}</td>
                   <td>{trade.price}</td>

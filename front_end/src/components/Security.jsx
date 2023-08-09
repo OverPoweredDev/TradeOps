@@ -7,15 +7,6 @@ import AddSecurity from './AddSecurity';
 import { useForm, SubmitHandler } from "react-hook-form"
 import Button from 'react-bootstrap/esm/Button';
 
-function updateSecurity(id){
-  axios({
-    url: "http://localhost:8080/update/",
-    method: "POST"
-  })
-  .then((res) => { console.log("http://localhost:8080") })
-  .catch((err) => { console.log("http://localhost:8080/" ) });
-}
-
 function Security(props) {
   const [searchTerm, setSearchTerm] = useState(''); 
   const [bondData, setBond] = useState([]);
@@ -34,8 +25,8 @@ function Security(props) {
     return (
       <div>
         
-      <div className="container mt-3 d-flex justify-content-end"> {/* Shift search bar to the right */}
-         <div className="mr-3">
+        <center><h1>Securities Table</h1></center>
+         {/* <div className="mr-3">
           <label htmlFor="searchName"  className="font-weight-bold">Search:    </label>
         </div>
         <input
@@ -43,8 +34,8 @@ function Security(props) {
           placeholder=""
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
-        />
-      </div>
+        /> */}
+
         <div className="container mt-5">
 
             <a href="/AddSecurity">
@@ -62,7 +53,6 @@ function Security(props) {
                     <th>Issuer</th>
                     <th>MaturityDate</th>
                     <th>Coupon</th>
-                    <th>Type</th>
                     <th>FaceValue</th>
                     <th>Status</th>
                     <th>Update</th>
@@ -78,10 +68,9 @@ function Security(props) {
                         <td>{bond.issuer}</td>
                         <td>{bond.maturityDate}</td>
                         <td>{bond.coupon}</td>
-                        <td>{bond.type}</td>
                         <td>{bond.faceValue}</td>
                         <td>{bond.status}</td>
-                        <td><Button type='button' className='btn btn-success' variant='contained' onClick={updateSecurity(bond.securityId)}>Update</Button></td>
+                        <td><a href='AddSecurity'><Button type='button' className='btn btn-success' variant='contained'>Update</Button></a></td>
                       </tr>
                     ))
                     }
