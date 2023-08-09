@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 import DataCards from './DataCards';
 
 function AddTrade(props) {
-    const [books, setBooks] = useState([]);
+    // const [books, setBooks] = useState([]);
     const [counterparties, setCounterparties] = useState([]);
     const [securities, setSecurities] = useState([]);
 
@@ -20,13 +20,31 @@ function AddTrade(props) {
           console.error('Error fetching data:', error);
         });
 
+        axios.get('http://localhost:8080/trades/allcounterparty')
+        .then(response => {
+          setCounterparties(response.data)
+          console.log(response.data)
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+
+        // axios.get('http://localhost:8080/trades/allbooks')
+        // .then(response => {
+        //   setBooks(response.data)
+        //   console.log(response.data)
+        // })
+        // .catch(error => {
+        //   console.error('Error fetching data:', error);
+        // });
+
     },[]);
 
     const [formData, setFormData] = useState({
         id: 0,
         bookId: 0,
-        counterpartyId: 0,
-        securityId: 0,
+        counterpartyId: {},
+        securityId: {},
         quantity: 0,
         status: '',
         price: 0.0,
@@ -42,6 +60,8 @@ function AddTrade(props) {
 
       const handleSubmit = async (e) => {
         e.preventDefault();
+
+        console.log(formData);
 
         try{
             const resp = await axios.post('http://localhost:8080/trades/add',{
@@ -79,32 +99,41 @@ function AddTrade(props) {
             <div className="mb-3">
                 <label  className="form-label"></label>
                 <input type="number" placeholder="Trade Id"  className="form-control" value={id}  onChange={handleInputChange("id")} />
-
-                {/* <select
-                name="bookId"
-                value={formData.bookId}
-                onChange={handleInputChange}
-                >
-                <option value="">Select a book</option>
-                {books.map((book) => (
-                    <option key={book.id} value={book.id}>
-                    {book.name}
-                    </option>
-                ))} */}
-                {/* </select> */}
                
             </div>
 
             <div className="mb-3">
                 <label  className="form-label"></label>
                 <input type="number" placeholder="Book ID"  className="form-control" value={bookId}  onChange={handleInputChange("bookId")} />
-               
+                {/* <select
+                name="bookId"
+                value={bookId}
+                onChange={handleInputChange('bookId')}
+                >
+                <option value="">Select a Book</option>
+                {books.map((book) => (
+                    <option key={book.bookId} value={book.bookId}>
+                    {book.bookName}
+                    </option>
+                ))}
+                </select> */}
             </div>
 
             <div className="mb-3">
-                <label  className="form-label"></label>
-                <input type="number" placeholder="Counterparty ID"  className="form-control" value={counterpartyId}  onChange={handleInputChange("counterpartyId")} />
-               
+                {/* <label  className="form-label"></label>
+                <input type="number" placeholder="Counterparty ID"  className="form-control" value={counterpartyId}  onChange={handleInputChange("counterpartyId")} /> */}
+                <select
+                name="counterpartId"
+                value={counterpartyId}
+                onChange={handleInputChange('counterpartyId')}
+                >
+                <option value="">Select a counterparty</option>
+                {counterparties.map((counterparty) => (
+                    <option key={counterparty.counterpartyId} value={counterparty.counterpartyId}>
+                    {counterparty.counterpartyName}
+                    </option>
+                ))}
+                </select>
             </div>
 
             <div className="mb-3">

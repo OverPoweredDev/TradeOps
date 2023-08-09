@@ -1,5 +1,7 @@
 package com.group22.back_end.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.group22.back_end.exception.ResourceNotFoundException;
 import com.group22.back_end.models.Book;
 import com.group22.back_end.models.Counterparty;
@@ -80,6 +82,7 @@ public class TradeController {
 
     @PostMapping("/add")
     public Trade addTrade(@RequestBody Trade trade) {
+        System.out.println(trade.getCounterpartyId().getCounterpartyId());
         return tradeService.addTrade(trade);
     }
 
