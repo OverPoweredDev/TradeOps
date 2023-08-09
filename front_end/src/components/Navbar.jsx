@@ -19,7 +19,7 @@ class Navbar extends Component {
             <div >
         <nav className="navbar navbar-expand navbar-dark bg-primary">
             <a href="#" className='navbar-brand font-weight-bold' style={{marginLeft: "40px"}}>
-                Bonds App
+                <h2>Bonds App</h2>
             </a>
             
             <div className='container'>

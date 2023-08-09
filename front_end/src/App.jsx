@@ -15,6 +15,7 @@ import FinalCharts from './components/FinalCharts';
 import AddSecurity from './components/AddSecurity';
 import AddTrade from './components/AddTrade';
 import UpdateSecurity from './components/UpdateSecurity';
+import Login from './components/Login';
 
 
 
@@ -22,16 +23,17 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        
         <Navbar />
 
-        <div>
-          <DataCards/>
-        </div>
+        <DataCards/>
+
 
 
         <div className='container mt-3'>
           <Routes>
-            <Route path='/' element={<FinalCharts/>}/>
+            <Route path='/' element={<Login/>}/>
+            <Route path='/Dashboard' element={<FinalCharts/>}/>
             <Route path='/AddSecurity' element={<AddSecurity/>}/>
             <Route path='/AddTrade' element={<AddTrade/>}/>
             <Route path="/usertrades" element={<Trade />}/>
