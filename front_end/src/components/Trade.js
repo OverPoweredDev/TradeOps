@@ -69,7 +69,7 @@ function Trade(props) {
               trades.map(trade => (
                 <tr key={trade.id}>
                   <td>{trade.id}</td>
-                  <td>{trade.bookId.bookId}</td>
+                  <td>{trade.bookId}</td>
                   <td>{trade.counterpartyId.counterpartyId}</td>
                   <td>{trade.securityId.securityId}</td>
                   <td>{trade.quantity}</td>

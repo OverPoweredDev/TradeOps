@@ -5,6 +5,7 @@ import './styles.css';
 import TradeChart from './TradeChart';
 import Navbar from './Navbar';
 import DataCards from './DataCards';
+import TradeMonthChart from './TradeMonthChart';
 
 export default class FinalCharts extends Component {
   render() {
@@ -18,6 +19,7 @@ export default class FinalCharts extends Component {
         <div className="App">
           
             <TradeChart/>
+            <TradeMonthChart />
             <SecurityChart />
           </div>
       </div>
