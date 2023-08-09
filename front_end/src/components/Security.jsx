@@ -7,15 +7,6 @@ import AddSecurity from './AddSecurity';
 import { useForm, SubmitHandler } from "react-hook-form"
 import Button from 'react-bootstrap/esm/Button';
 
-function updateSecurity(id){
-  axios({
-    url: "http://localhost:8080/update/",
-    method: "POST"
-  })
-  .then((res) => { console.log("http://localhost:8080") })
-  .catch((err) => { console.log("http://localhost:8080/" ) });
-}
-
 function Security(props) {
   const [searchTerm, setSearchTerm] = useState(''); 
   const [bondData, setBond] = useState([]);
@@ -81,7 +72,7 @@ function Security(props) {
                         <td>{bond.type}</td>
                         <td>{bond.faceValue}</td>
                         <td>{bond.status}</td>
-                        <td><Button type='button' className='btn btn-success' variant='contained' onClick={updateSecurity(bond.securityId)}>Update</Button></td>
+                        <td><a href='AddSecurity'><Button type='button' className='btn btn-success' variant='contained'>Update</Button></a></td>
                       </tr>
                     ))
                     }

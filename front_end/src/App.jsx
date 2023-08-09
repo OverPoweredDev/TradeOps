@@ -14,6 +14,7 @@ import SecurityChart from './components/SecurityChart';
 import FinalCharts from './components/FinalCharts';
 import AddSecurity from './components/AddSecurity';
 import AddTrade from './components/AddTrade';
+import UpdateSecurity from './components/UpdateSecurity';
 
 
 
@@ -35,6 +36,7 @@ export default class App extends Component {
             <Route path='/AddTrade' element={<AddTrade/>}/>
             <Route path="/usertrades" element={<Trade />}/>
             <Route path='/security' element={<Security />}/>
+            <Route path='/updateSecurity' element={<UpdateSecurity/>}/>
           </Routes>
         </div>
       </div>

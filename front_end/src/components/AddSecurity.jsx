@@ -62,7 +62,7 @@ function AddSecurity(props) {
         
 
         <div className='col-4'>
-            <h1>Add New Security</h1>
+            <h1>Add/Update Security</h1>
 
             <form onSubmit={handleSubmit}>
 
