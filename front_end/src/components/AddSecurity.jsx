@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { useForm } from 'react-hook-form';
-
+import Navbar from './Navbar';
+import DataCards from './DataCards';
 import axios from 'axios';
 
 function AddSecurity(props) {
@@ -54,9 +55,11 @@ function AddSecurity(props) {
         }
     };
     return (
-        <div className="container-fluid">
-        <div className='row login-main'>
-        <div className='col-2'></div>
+        <div>
+            <Navbar />
+            <DataCards />
+        <div className='container-fluid row login login-main'>
+        <div className='col-4'></div>
         
 
         <div className='col-4'>
@@ -113,7 +116,7 @@ function AddSecurity(props) {
 
             <div class="d-grid gap-2">
             
-            <button type="submit" class="btn btn-primary login-btn">Add</button>
+            <button type="submit" class="btn btn-primary">Add</button>
             </div>
             </form>
             </div>   

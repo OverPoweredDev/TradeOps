@@ -10,9 +10,13 @@ export default class FinalCharts extends Component {
   render() {
     return (
       <div>
-
-
+        <Navbar />
+        <div>
+          <DataCards />
+        </div>
+        
         <div className="App">
+          
             <TradeChart/>
             <SecurityChart />
           </div>

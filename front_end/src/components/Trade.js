@@ -26,6 +26,9 @@ function Trade(props) {
     }
     return (
       <div>
+        <Navbar />
+        <DataCards />
+        <center><h1 className='tradeh'>Trade Table</h1></center>
           <div className="container mt-3 d-flex justify-content-end"> {/* Shift search bar to the right */}
          {/* <div className="mr-3" id="search-icon">
           <label htmlFor="searchName"  className="font-weight-bold">Search:    </label>
@@ -39,7 +42,7 @@ function Trade(props) {
         />
       </div> */}
     
-      <h1>Trade Table</h1>
+      
 
       {/* <a href="/AddTrade">
                 <button className='btn btn-primary m-3'>Initiate New Trade</button>

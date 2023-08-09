@@ -23,7 +23,7 @@ function Login(props) {
     }
 
     return (
-        <div className="container-fluid">
+        <div className="login container-fluid">
         <div className='row login-main'>
         <div className='col-2'></div>
         <div className='col-4'>

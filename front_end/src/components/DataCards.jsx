@@ -58,7 +58,7 @@ function DataCards(props) {
         });
     }, []);
         return (
-            <div>
+            <div className='navbar data'>
             <div className='row row-cols-1 row-cols-md-3 g-4 bg-primary d-flex justify-content-around'>
                 <div className="col-sm w-25 p-3">
                     <div className="card h-100">

@@ -2,6 +2,8 @@ import React, {useState,useEffect} from 'react';
 import { useForm } from 'react-hook-form';
 
 import axios from 'axios';
+import Navbar from './Navbar';
+import DataCards from './DataCards';
 
 function AddTrade(props) {
     const [books, setBooks] = useState([]);
@@ -63,7 +65,9 @@ function AddTrade(props) {
     };
 
     return (
-        <div className="container-fluid">
+        <div>
+            <Navbar />
+            <DataCards />
         <div className='row login-main'>
         <div className='col-2'></div>
         

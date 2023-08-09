@@ -25,7 +25,7 @@ class Navbar extends Component {
             <div className='container'>
                 <div className="navbar-nav mr-auto  justify-content-md-center">
                     <li className=" col p-3">
-                        <Link to={'/'} className='nav-link text-white'>
+                        <Link to={'/dashboard'} className='nav-link text-white'>
                             Dashboard
                         </Link>
                     </li>
@@ -70,8 +70,7 @@ class Navbar extends Component {
 
                     <Dropdown.Menu>
                         <Dropdown.Item href="#">Profile</Dropdown.Item>
-                        <Dropdown.Item href="#">Initiate new Trade</Dropdown.Item>
-                        <Dropdown.Item href="#">Logout</Dropdown.Item>
+                        <Dropdown.Item href="http://localhost:3000">Logout</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             </div>

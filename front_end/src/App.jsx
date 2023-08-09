@@ -23,14 +23,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        
-        <Navbar />
-
-        <DataCards/>
-
-
-
-        <div className='container mt-3'>
+        <div className='container'>
           <Routes>
             <Route path='/' element={<Login/>}/>
             <Route path='/Dashboard' element={<FinalCharts/>}/>

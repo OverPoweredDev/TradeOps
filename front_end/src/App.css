@@ -50,10 +50,27 @@
   background-color: #DDDDDD;
 }
 
+.login{
+  margin-top: 10%;
+}
+
 .login .login-img{
   size: 10px;
 }
 
 .login .login-btn{
   background-color: rgb(106, 55, 233);
+}
+
+.tradeh{
+  color: green;
+  padding-bottom: 1%;
+}
+
+.securityh{
+  color: green;
+}
+
+.data{
+  margin-bottom: 2%;
 }

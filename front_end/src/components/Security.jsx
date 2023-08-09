@@ -3,7 +3,7 @@ import DataCards from './DataCards';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import AddSecurity from './AddSecurity';
-
+import Navbar from './Navbar';
 import { useForm, SubmitHandler } from "react-hook-form"
 import Button from 'react-bootstrap/esm/Button';
 
@@ -24,8 +24,9 @@ function Security(props) {
 
     return (
       <div>
-        
-        <center><h1>Securities Table</h1></center>
+        <Navbar />
+        <DataCards />
+        <center><h1 className='securityh'>Securities Table</h1></center>
          {/* <div className="mr-3">
           <label htmlFor="searchName"  className="font-weight-bold">Search:    </label>
         </div>
