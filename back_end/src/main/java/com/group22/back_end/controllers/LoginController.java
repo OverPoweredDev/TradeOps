@@ -8,6 +8,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/app")
+@CrossOrigin(origins = "*")
 public class LoginController {
     private LoginService loginService;
 

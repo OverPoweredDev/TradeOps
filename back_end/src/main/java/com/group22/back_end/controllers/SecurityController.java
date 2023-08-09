@@ -140,7 +140,8 @@ public class SecurityController {
         return securityService.addSecurity(security);
     }
 
-    @PutMapping("update/")
+    @PutMapping("/update")
+    @CrossOrigin(origins = "*")
     public void updateSecurityById(@RequestBody Security security) throws ResourceNotFoundException {
         securityService.updateSecurity(security);
     }
